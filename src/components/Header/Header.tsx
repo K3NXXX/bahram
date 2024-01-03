@@ -5,8 +5,8 @@ import { FiUser } from "react-icons/fi";
 import { IconContext } from "react-icons"
 import { IoSearchSharp } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
-import { Link, useNavigate } from "react-router-dom";
-import { ACCOUNT_ROUTE, REGISTER_ROUTE } from "../../utils/consts";
+import { Link } from "react-router-dom";
+import { ACCOUNT_ROUTE, HOME_ROUTE, REGISTER_ROUTE } from "../../utils/consts";
 import { FiUserCheck } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { checkIsAuth } from "../../redux/slices/auth/authSlice";
@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
                 </label>
             </div>
             <div className={style.logo__wrapper}>
-                <Link to="/bahram">
+                <Link to={HOME_ROUTE}>
                     <img src={logo} alt="logo-icon" className={style.logo} />
                 </Link>
             </div>

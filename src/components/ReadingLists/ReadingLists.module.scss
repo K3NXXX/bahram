@@ -1,0 +1,20 @@
+.root {
+    max-width: 1202px;
+    padding: 0 15px;
+    margin: 0 auto;
+   .title {
+    color: #000;
+    font-family: Open Sans;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 58px; /* 161.111% */
+    letter-spacing: -0.225px;
+    margin-bottom: 30px;
+   }
+   .content {
+    display: grid;
+    grid-template-columns: repeat(5, 213px);
+    gap: 0 20px;
+   }
+}

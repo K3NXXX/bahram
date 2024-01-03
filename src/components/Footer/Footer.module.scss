@@ -1,0 +1,20 @@
+.root {
+    max-width: 1202px;
+    padding: 175px 15px 35px 15px;
+    margin: 0 auto;
+    background: #FFF;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    .copyright {
+        color: #9B9B9B;
+        text-align: right;
+        font-family: Open Sans;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+

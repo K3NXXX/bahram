@@ -1,0 +1,14 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    width: 213px;
+    cursor: pointer;
+    img {
+        width: 213px;
+        height: 225px;
+        margin-bottom: 20px;
+    }
+    p {
+        text-align: center;
+    }
+}

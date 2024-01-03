@@ -29,9 +29,15 @@ body {
     letter-spacing: -0.112px;
     line-height: 30px;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #F9F9FB;
 }
 
-/* For Chrome, Safari, and newer versions of Edge */
+main {
+  flex: 1 1 auto;
+}
+
 ::-webkit-scrollbar {
     width: 12px; 
   }
