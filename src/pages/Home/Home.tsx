@@ -1,13 +1,13 @@
 import React from 'react'
 import { Intro } from '../../components/Intro/Intro'
-import { PostLayout } from '../../components/PostSections/PostLayout/PostLayout'
 import { ReadingLists } from '../../components/ReadingLists/ReadingLists'
+import { PostSections } from '../../components/PostSections/PostSections'
 
 export const Home:React.FC = () => {
   return (
     <div>
         <Intro/>
-        <PostLayout/>
+        <PostSections/>
         <ReadingLists/>
     </div>
   )

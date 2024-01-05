@@ -1,7 +1,7 @@
 .root {
     max-width: 1202px;
-    padding: 180px 15px 0 15px;
-    margin: 0 auto 180px auto;
+    padding: 0px 15px 0 15px;
+    margin: 100px auto 100px auto;
 
     .top {
         display: flex;
@@ -30,15 +30,25 @@
     .content {
         display: flex;
         justify-content: space-between;
+        @media (max-width:1218px) {
+            flex-direction: column;
+            gap: 20px 0;
+            align-items: center;
+        }
         gap: 0 20px;
         .content__left {
-            background-image: url("../../assets//images//postSection/bg.jpg");
+            background-image: url("../../../assets//images//postSection/bg.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            width: 639px;
+            max-width: 639px;
             height: 359px;
             padding: 43px;
+            @media (max-width:662px) {
+                padding: 20px;
+                text-align: center;
+            }
+          
             .author {
                 color: #FFF;
                 font-family: Open Sans;
@@ -47,6 +57,11 @@
                 font-weight: 400;
                 line-height: 58px; /* 362.5% */
                 letter-spacing: -0.1px;
+                @media (max-width:662px) {
+                    max-width: 500px;
+                    font-size: 14px;
+                    line-height: 40px; /* 362.5% */
+                }
             }
             .post__title {
                 color: #FFF;
@@ -57,6 +72,15 @@
                 line-height: 46px; /* 164.286% */
                 letter-spacing: -0.175px;
                 margin-bottom: 20px;
+                @media (max-width:662px) {
+                    font-size: 20px;
+                    max-width: 500px;
+                    line-height: 30px; /* 362.5% */
+
+                }
+                @media (max-width:450px) {
+                    font-size: 16px;
+                }
             }
             .post__descr {
                 color: #FFF;
@@ -66,6 +90,10 @@
                 font-weight: 400;
                 line-height: 32px; /* 200% */
                 letter-spacing: -0.1px;
+                @media (max-width:662px) {
+                    font-size: 14px;
+                    max-width: 500px;
+                }
             }
         }
         .content__right {
@@ -78,6 +106,9 @@
                 border-radius: 8px;
                 background: #FFF;
                 box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+                @media (max-width:464px) {
+                    padding: 10px 10px;
+                }
                 .post__card_type {
                     color: #9B9B9B;
                     font-family: Open Sans;
@@ -96,6 +127,9 @@
                     line-height: 30px; /* 166.667% */
                     letter-spacing: -0.112px;
                     max-width: 236px;
+                    @media (max-width:464px) {
+                        font-size: 14px;
+                    }
                 }
             }
         }

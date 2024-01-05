@@ -1,4 +1,4 @@
-type postSectionsType = {
+export type postSectionsType = {
     id: number,
     title: string
 }

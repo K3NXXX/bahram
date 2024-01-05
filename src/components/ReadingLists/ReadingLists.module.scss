@@ -16,5 +16,21 @@
     display: grid;
     grid-template-columns: repeat(5, 213px);
     gap: 0 20px;
+    @media (max-width:1170px) {
+        grid-template-columns: repeat(4, 213px);
+        justify-content: center;
+    }
+    @media (max-width:948px) {
+        grid-template-columns: repeat(3, 213px);
+        justify-content: center;
+    }
+    @media (max-width:726px) {
+        grid-template-columns: repeat(2, 213px);
+        justify-content: center;
+    }
+    @media (max-width:484px) {
+        grid-template-columns: repeat(1, 213px);
+        justify-content: center;
+    }
    }
 }

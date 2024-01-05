@@ -2,11 +2,18 @@
     max-width: 1202px;
     padding: 175px 15px 35px 15px;
     margin: 0 auto;
-    background: #FFF;
+    @media (max-width:484px) {
+        padding: 70px 15px 35px 15px;
+    }
 }
 .content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    @media (max-width:400px) {
+        flex-direction: column;
+        gap: 20px 0;
+    }
     .copyright {
         color: #9B9B9B;
         text-align: right;

@@ -1,11 +1,16 @@
 import React from 'react'
 import style from "./PostLayout.module.scss"
+import { postSectionsType } from '../../../lists/postsSections'
 
-export const PostLayout:React.FC = () => {
+type PostLayoutPropsType = {
+    section: postSectionsType
+}
+
+export const PostLayout:React.FC<PostLayoutPropsType> = ({section}) => {
   return (
     <section className={style.root}>
         <div className={style.top}>
-            <h3 className={style.title}>Essentials</h3>
+            <h3 className={style.title}>{section.title}</h3>
             <button className={style.viewAll}>View All</button>
         </div>
         <div className={style.content}>
@@ -37,5 +42,6 @@ export const PostLayout:React.FC = () => {
         </div>
  
     </section>
+    
   )
 }
