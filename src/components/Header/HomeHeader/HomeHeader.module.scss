@@ -12,14 +12,15 @@
 	gap: 20px 0;
 }
 .header__top {
-	display: flex;
-	justify-content: space-between;	
+	display: grid;
+    grid-template-columns: repeat(3,1fr);
 }
 .header__bottom {
 	display: flex;
 	justify-content: center;
 	input {
 		border-radius: 20px;
+		border: 3px solid #6d5cc5;
 		padding: 0px 50px 0 50px;
 		color: #000000;
         font-family: Open Sans;
@@ -57,16 +58,38 @@
 .logo__wrapper {
     cursor: pointer;
 	user-select: none;
+    justify-self: center;
 }
 .search__wrapper {
     display: flex;
     gap: 0 20px;
+    align-items: center;
+    justify-content: end;
 	.search {
 		cursor: pointer;
 	}
 	.user {
 		cursor: pointer;
+        position: relative;
+        top: 4px;
 	}
+    .addPost {
+        border-radius: 10px;
+       
+        color: #FFF;
+        font-family: Open Sans;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -0.375px;
+        padding: 5px 19px;
+        background-color: #6d5cc5;
+        transition: 0.3s ease;
+        &:hover {
+            background: #9283E0;
+        }
+    }
 }
 .toggle__theme {
     max-width: 20px;

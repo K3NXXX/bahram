@@ -15,27 +15,26 @@ img {vertical-align: top;}
 h1, h2, h3, h4, h5, h6 {font-size: inherit;font-weight: inherit;}
 /*--------------------*/
 
-.App {
-    max-width: 1202px;
-    padding: 0 15px;
-    margin: 0 auto;
+body {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 18px;
+  color: #111210;
+  letter-spacing: -0.112px;
+  line-height: 30px;
+  overflow-x: hidden;
+  background: #F9F9FB;
+  height: 100%;
 }
 
-body {
-    font-family: "Open Sans";
-    font-weight: 600;
-    font-size: 18px;
-    color: #111210;
-    letter-spacing: -0.112px;
-    line-height: 30px;
-    overflow-x: hidden;
+.App {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #F9F9FB;
 }
 
-main {
-  flex: 1 1 auto;
+.main {
+  flex: 1;
 }
 
 ::-webkit-scrollbar {
@@ -43,7 +42,7 @@ main {
   }
   
   ::-webkit-scrollbar-thumb {
-    background-color: #272727; 
+    background-color: #3e3180; 
   }
   
   ::-webkit-scrollbar-track {

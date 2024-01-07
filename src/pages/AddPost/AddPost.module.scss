@@ -1,0 +1,66 @@
+
+.root {
+    max-width: 1202px;
+    padding: 0 15px;
+    margin: 0 auto;
+    padding-top: 180px;
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px 0;
+        .title {
+            width: 600px;
+            padding: 15px;
+            border-radius: 20px;
+            border: 2px solid #9283E0;
+            color: #000000;
+            font-family: Open Sans;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 30px;
+            letter-spacing: -0.1px;
+        }
+        .text {
+            width: 600px;
+            padding: 15px;
+            border-radius: 20px;
+            border: 2px solid #9283E0;
+            height: 330px;
+            color: #000000;
+            font-family: Open Sans;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 30px;
+            letter-spacing: -0.1px;
+        }
+        button {
+            border-radius: 10px;
+            color: #FFF;
+            font-family: Open Sans;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            letter-spacing: -0.375px;
+            padding: 10px 50px;
+            background-color: #6d5cc5;
+            transition: 0.3s ease;
+            &:hover {
+                background: #9283E0;
+            }
+        }
+    }
+    .photos {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 0 20px;
+        img {
+            max-width: 270px;
+        }
+    }
+}
