@@ -10,6 +10,7 @@ import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header/Header";
 import { HomeHeader } from "./components/Header/HomeHeader/HomeHeader";
 import style from "./global.module.scss"
+import { getPosts } from "./redux/slices/posts/postsSlice";
 
 const App:React.FC = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -21,6 +22,7 @@ const App:React.FC = () => {
   }, [dispatch])
 
   useEffect(() => {
+    dispatch(getPosts())
   }, [dispatch])
 
   useEffect(() => {

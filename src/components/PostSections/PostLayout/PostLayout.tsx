@@ -1,6 +1,7 @@
 import React from 'react'
 import style from "./PostLayout.module.scss"
 import { postSectionsType } from '../../../lists/postsSections'
+import { Link } from 'react-router-dom'
 
 type PostLayoutPropsType = {
     section: postSectionsType
@@ -11,7 +12,7 @@ export const PostLayout:React.FC<PostLayoutPropsType> = ({section}) => {
     <section className={style.root}>
         <div className={style.top}>
             <h3 className={style.title}>{section.title}</h3>
-            <button className={style.viewAll}>View All</button>
+            <Link to={section.route} className={style.viewAll}>View All</Link>
         </div>
         <div className={style.content}>
             <div className={style.content__left}>

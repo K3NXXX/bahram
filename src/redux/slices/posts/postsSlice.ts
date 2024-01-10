@@ -1,8 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "../../../utils/axios"
 
-const getPosts = createAsyncThunk('posts/getPosts', async() => {
+export const getPosts = createAsyncThunk('posts/getPosts', async() => {
     const {data} = await axios.get('/posts')
+    return data
+})
+
+export const createPost = createAsyncThunk('posts/createPost', async(params:FormData) => {
+    const {data} = await axios.post('/posts', params)
     return data
 })
 
@@ -23,6 +28,30 @@ const postsSlice = createSlice({
     reducers: {
     },
     extraReducers: (builder) => {
+        //getPosts
+        builder.addCase(getPosts.pending, (state) => {
+            state.posts.items = []
+            state.posts.status = 'loading'
+        })
+        builder.addCase(getPosts.fulfilled, (state,action) => {
+            state.posts.status = 'loaded'
+            state.posts.items = action.payload
+        })
+        builder.addCase(getPosts.rejected, (state) => {
+            state.posts.status = 'error'
+            state.posts.items = []
+        })
+        //createPost
+        builder.addCase(createPost.pending, (state) => {
+            state.posts.status = 'loading'
+        })
+        builder.addCase(createPost.fulfilled, (state,action) => {
+            state.posts.status = 'loaded'
+            state.posts.items = action.payload
+        })
+        builder.addCase(createPost.rejected, (state) => {
+            state.posts.status = 'error'
+        })
     }
 })
 
