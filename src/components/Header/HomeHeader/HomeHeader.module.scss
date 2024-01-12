@@ -14,10 +14,14 @@
 .header__top {
 	display: grid;
     grid-template-columns: repeat(3,1fr);
-	.toggle__theme {
+	.header__top_left {
 		display: flex;
 		align-items: center;
 		gap: 0 20px;
+		.theme {
+			display: flex;
+			align-items: center;
+		}
 		.addPost {
 			position: relative;
 			top: 4px;

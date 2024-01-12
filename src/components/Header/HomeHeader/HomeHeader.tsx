@@ -10,18 +10,23 @@ import { checkIsAuth } from '../../../redux/slices/auth/authSlice'
 import { FiUser, FiUserCheck } from 'react-icons/fi'
 import { AiOutlinePlusSquare } from "react-icons/ai";
 import { IoSunny } from "react-icons/io5";
+import { FaMoon } from 'react-icons/fa'
 export const HomeHeader:React.FC = () => {
     const IsAuth = useSelector(checkIsAuth)
     const [search, setSearch] = useState<boolean>(false)
     const [value, setValue] = useState<string>("")
-
+    const [theme, setTheme] = useState(false)
   return (
     <header className={style.header}>
     <div className={style.header__top}>
-        <div className={style.toggle__theme}>
-            <IconContext.Provider value={{color: 'white', size: '30px'}}>
-                <IoSunny />
-            </IconContext.Provider>
+    <div className={style.header__top_left}>
+            <div onClick={() => setTheme(!theme)} className={style.theme}>
+                <IconContext.Provider value={{color: 'white', size: '30px'}}>
+                    {theme ? (
+                        <IoSunny  />
+                    ): (<FaMoon/>)}
+                 </IconContext.Provider>
+            </div>
             {IsAuth ? (
                 <Link to={ADDPOST_ROUTE}>
                     <IconContext.Provider value={{size:'30px', color: "white"}}>
