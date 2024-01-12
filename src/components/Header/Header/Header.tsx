@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from "./Header.module.scss"
 import { Link } from 'react-router-dom'
 import { ACCOUNT_ROUTE, ADDPOST_ROUTE, HOME_ROUTE, REGISTER_ROUTE } from '../../../utils/consts'
@@ -8,31 +8,28 @@ import { IoClose, IoSearchSharp } from 'react-icons/io5'
 import { useSelector } from 'react-redux'
 import { checkIsAuth } from '../../../redux/slices/auth/authSlice'
 import { FiUser, FiUserCheck } from 'react-icons/fi'
+import { IoSunny } from "react-icons/io5";
+import { AiOutlinePlusSquare } from 'react-icons/ai'
 export const Header:React.FC = () => {
     const IsAuth = useSelector(checkIsAuth)
     const [search, setSearch] = useState<boolean>(false)
     const [value, setValue] = useState<string>("")
+
   return (
     <header className={style.header}>
     <div className={style.header__top}>
         <div className={style.toggle__theme}>
-            <label htmlFor="theme" className={style.theme}>
-                <span className={style.theme__toggle_wrap}>
-                    <input id="theme" className={style.theme__toggle} type="checkbox" role="switch" name="theme" value="dark"/>
-                    <span className={style.theme__fill}></span>
-                    <span className={style.theme__icon}>
-                        <span className={style.theme__icon_part}></span>
-                        <span className={style.theme__icon_part}></span>
-                        <span className={style.theme__icon_part}></span>
-                        <span className={style.theme__icon_part}></span>
-                        <span className={style.theme__icon_part}></span>
-                        <span className={style.theme__icon_part}></span>
-                        <span className={style.theme__icon_part}></span>
-                        <span className={style.theme__icon_part}></span>
-                        <span className={style.theme__icon_part}></span>
-                    </span>
-                </span>
-            </label>
+            <IconContext.Provider value={{color: 'black', size: '30px'}}>
+                <IoSunny />
+            </IconContext.Provider>
+            {IsAuth ? (
+                <Link to={ADDPOST_ROUTE}>
+                    <IconContext.Provider value={{size:'30px', color: "black"}}>
+                        <AiOutlinePlusSquare   className={style.addPost} />
+                    </IconContext.Provider>
+                </Link>
+            ): ('')}
+            
         </div>
         <div className={style.logo__wrapper}>
             <Link to={HOME_ROUTE}>
@@ -40,11 +37,6 @@ export const Header:React.FC = () => {
             </Link>
         </div>
         <div className={style.search__wrapper}>
-            {IsAuth ? (
-                <Link to={ADDPOST_ROUTE}>
-                    <button className={style.addPost}>Add new post</button>
-                </Link>
-            ): ('')}
             
             <IconContext.Provider value={{color: "black", size: "30px"}}>
                 <IoSearchSharp onClick={() => setSearch(!search)} className={style.search}/>
