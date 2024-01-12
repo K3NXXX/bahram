@@ -1,9 +1,10 @@
 import { Home } from "./pages/Home/Home";
 import { Auth } from "./pages/Auth/Auth";
-import { ACCOUNT_ROUTE, ADDPOST_ROUTE, ESSENTIALS_ROUTE, HOME_ROUTE, REGISTER_ROUTE } from "./utils/consts";
+import { ACCOUNT_ROUTE, ADDPOST_ROUTE, ESSENTIALS_ROUTE, FULLPOST_ROUTE, HOME_ROUTE, REGISTER_ROUTE } from "./utils/consts";
 import { Account } from "./pages/Account/Account";
 import { AddPost } from "./pages/AddPost/AddPost";
 import { EssentialsPosts } from "./pages/EssentialsPosts/EssentialsPosts";
+import { FullPost } from "./pages/FullPost/FullPost";
 
 export const routes = [
     {
@@ -25,5 +26,9 @@ export const routes = [
     {
         path: ESSENTIALS_ROUTE,
         Component: EssentialsPosts
+    },
+    {
+        path: FULLPOST_ROUTE + '/:id',
+        Component: FullPost
     },
 ]

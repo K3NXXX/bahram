@@ -12,8 +12,6 @@ export const Footer:React.FC = () => {
             </Link>
             <p className={style.copyright}>All Rights Reserved 2024 3layers</p>
         </div>
-
-
     </footer>
   )
 }

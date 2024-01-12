@@ -5,6 +5,8 @@ export type postType = {
     tags: string[],
     imageUrl?: Blob | MediaSource,
     author: authorType
+    username: string,
+    viewsCount: number
 }
 
 type authorType = {
