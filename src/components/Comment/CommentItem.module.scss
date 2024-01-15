@@ -1,6 +1,8 @@
 .root {
     display: flex;
     gap: 0 25px;
+    border-bottom: 1px solid rgb(199, 199, 199);
+    padding: 77px 0;
     .avatar {
         border-radius: 100%;
     }
@@ -53,4 +55,5 @@
         font-weight: 400;
         line-height: 40px;
     }
+    
 }

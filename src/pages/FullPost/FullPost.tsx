@@ -14,13 +14,19 @@ import { FaPinterest } from "react-icons/fa";
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 import { CommentItem } from '../../components/Comment/CommentItem'
+import { useForm } from 'react-hook-form'
+import { CommentFormData } from '../../redux/slices/comments/types'
 
 export const FullPost:React.FC = () => {
+  const {register, handleSubmit, formState:{errors}} = useForm<CommentFormData>({mode: 'onChange'})
   const comments = useSelector((state:RootState) => state.commentsSlice.comments)
   const [post, setPost] = useState<postType | null>(null)
   const [like, setLike] = useState(false)
   const {id} = useParams<{ id: string }>();
-  console.log(post)
+
+  const onSubmit = (data: CommentFormData) => {
+    console.log(data, "OK")
+  }
 
   useEffect(() => {
     const fetchPost = async() => {
@@ -83,6 +89,29 @@ export const FullPost:React.FC = () => {
                 <CommentItem/>
               ))} */}
               <CommentItem/>
+              <CommentItem/>
+          </div>
+          <div className={style.comments__create}>
+            <p className={style.leave__reply}>Leave a Reply</p>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <textarea
+                {...register("comment", {required:true})}
+                placeholder='Comment' />
+                <input
+                {...register("email", 
+                {required:true, 
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Invalid email"
+                }
+                })}
+                type="text" placeholder='Email' />
+                <div className={style.policy}>
+                  <input type="checkbox" />
+                  <p className={style.copyright}>I agree to the Terms and Conditions and Privacy Policy</p>
+                </div>
+                <button>Post Comment</button>
+            </form>
           </div>
         </div>
     </div>
