@@ -11,6 +11,23 @@
             font-weight: 700;
             letter-spacing: -0.225px;
             margin-bottom: 20px;
+            line-height: 50px;
+            @media (max-width:900px) {
+                text-align: center;
+                margin-bottom: 10px;
+                font-size: 30px;
+            }
+            @media (max-width:640px) {
+                font-size: 26px;
+            }
+            @media (max-width:460px) {
+                font-size: 20px;
+                line-height: 40px;
+                margin-bottom: 0px;
+            }
+            @media (max-width:400px) {
+                font-size: 17px;
+            }
         }
         .author {
             color: #000;
@@ -22,6 +39,13 @@
             letter-spacing: -0.1px;
             text-transform: uppercase;
             margin-bottom: 100px;
+            @media (max-width:900px) {
+                text-align: center;
+                margin-bottom: 50px;
+            }
+            @media (max-width:440px) {
+                margin-bottom: 20px;
+            }
             span {
                 color: #9B9B9B;
                 font-family: Open Sans;
@@ -41,13 +65,22 @@
                 display: flex;
                 gap: 0 44px;
                 margin-bottom: 44px;
+                @media (max-width:1180px) {
+                    flex-direction: column;
+                }
                 img {
                     border-radius: 5px;
+                    max-width: 100%;
                 }
                 .social {
                     display: flex;
                     flex-direction: column;
                     gap: 20px 0;
+                    @media (max-width:1180px) {
+                        flex-direction: row;
+                        gap: 0 20px;
+                        margin-bottom: 20px;
+                    }
                     * {
                         cursor: pointer;
                     }
@@ -57,6 +90,11 @@
                     flex-direction: column;
                     gap: 40px 0;
                     user-select: none;
+                    @media (max-width:1180px) {
+                        flex-direction: row;
+                        gap: 0 20px;
+                        margin-top: 20px;
+                    }
                     .likes {
                         display: flex;
                         flex-direction: column;
@@ -78,6 +116,63 @@
             font-size: 24px;
             font-style: normal;
             font-weight: 400;
-            line-height: 40px; /* 200% */
+            line-height: 40px; 
+            @media (max-width:700px) {
+                font-size: 20px;
+            }
+            @media (max-width:460px) {
+                font-size: 16px;
+            }
+            @media (max-width:360px) {
+                font-size: 14px;
+            }
         }
-    }
+        .comments {
+            max-width: 779px;
+            margin: 0 auto;
+            padding-top: 100px;
+            .comments__top {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 40px;
+                .comment__title {
+                    color: #111210;
+                    font-family: Open Sans;
+                    font-size: 28px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 46px; /* 164.286% */
+                    letter-spacing: -0.175px;
+                }
+                .addComment {
+                    color: #FF5480;
+                    font-family: Open Sans;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    letter-spacing: -0.375px;
+                    background-color: transparent;
+                    border: 2px solid #FF5480;
+                    padding: 11px;
+                    transition: 0.3s ease all;
+                    &:hover {
+                        background-color: #FF5480;
+                        color: #ffffff;
+                    }
+                }
+            }
+            .comments__policy {
+                color: #4A4A4A;
+                font-family: Open Sans;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 40px;
+                margin-bottom: 100px;
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+}

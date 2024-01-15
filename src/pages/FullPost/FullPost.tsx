@@ -11,8 +11,12 @@ import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store'
+import { CommentItem } from '../../components/Comment/CommentItem'
 
 export const FullPost:React.FC = () => {
+  const comments = useSelector((state:RootState) => state.commentsSlice.comments)
   const [post, setPost] = useState<postType | null>(null)
   const [like, setLike] = useState(false)
   const {id} = useParams<{ id: string }>();
@@ -66,7 +70,21 @@ export const FullPost:React.FC = () => {
                 </div>
             </div>
         </div>
-            <p className={style.text}>{post.text}</p>
+        <p className={style.text}>{post.text}</p>
+        <div className={style.comments}>
+          <div className={style.comments__top}>
+           <h4 className={style.comment__title}>Comments</h4>
+           <button className={style.addComment}>Leave a Comment</button>
+          </div>
+          <p className={style.comments__policy}><span>Comment policy:</span> We love comments and appreciate the time that readers spend to share ideas and give feedback. However, all comments are manually moderated and those deemed to be spam or solely promotional will be deleted.
+          </p>
+          <div className={style.commets__list}>
+              {/* {comments.map((comment) => (
+                <CommentItem/>
+              ))} */}
+              <CommentItem/>
+          </div>
+        </div>
     </div>
   )
 }

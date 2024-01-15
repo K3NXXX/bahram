@@ -77,4 +77,3 @@ export const AddPost: React.FC = () => {
   );
 };
 
-export default AddPost;

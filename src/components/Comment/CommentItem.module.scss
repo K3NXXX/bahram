@@ -1,0 +1,56 @@
+.root {
+    display: flex;
+    gap: 0 25px;
+    .avatar {
+        border-radius: 100%;
+    }
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        .username {
+            color: #111210;
+            font-family: Open Sans;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 46px; /* 255.556% */
+            letter-spacing: -0.112px;
+        }
+        .date {
+            color: #9B9B9B;
+            font-family: Open Sans;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 46px; /* 255.556% */
+            letter-spacing: -0.112px;
+        }
+        .reply {
+            background-color: transparent;
+            color: #9B9B9B;
+            font-family: Open Sans;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            letter-spacing: -0.375px;
+            border-radius: 10px;
+            border: 2px solid #E4E4E4;
+            padding: 12px 19px;
+            transition: 0.3s all ease;
+            &:hover {
+                background-color: #e0e0e0;
+            }
+        }
+    }
+    .text {
+        color: #4A4A4A;
+        font-family: Open Sans;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 40px;
+    }
+}
