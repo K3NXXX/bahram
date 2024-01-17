@@ -72,7 +72,7 @@ export const routes = [
         Component: PopularPosts
     },
     {
-        path: FULLPOST_ROUTE,
+        path: FULLPOST_ROUTE + "/:id",
         Component: FullPost
     },
    

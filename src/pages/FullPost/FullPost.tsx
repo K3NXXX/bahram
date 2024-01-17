@@ -16,11 +16,13 @@ import { AppDispatch, RootState } from '../../redux/store'
 import { CommentItem } from '../../components/Comment/CommentItem'
 import { useForm } from 'react-hook-form'
 import { commentType, createCommentData } from '../../redux/slices/comments/types'
-import { createComment, getAllComments } from '../../redux/slices/comments/commentsSlice'
+import { createComment, getPostComments } from '../../redux/slices/comments/commentsSlice'
+import { Link as ScrollLink} from 'react-scroll';
+
 
 export const FullPost:React.FC = () => {
   const dispatch = useDispatch<AppDispatch>()
-  const {register, reset, handleSubmit, formState:{errors}} = useForm<createCommentData>({mode: 'onChange'})
+  const {register, reset, handleSubmit} = useForm<createCommentData>({mode: 'onChange'})
   const comments = useSelector((state:RootState) => state.commentsSlice.comments)
   const [post, setPost] = useState<postType | null>(null)
   const [like, setLike] = useState(false)
@@ -38,8 +40,8 @@ export const FullPost:React.FC = () => {
 
   useEffect(() => {
     //@ts-ignore
-    dispatch(getAllComments(id))
-  }, [id])
+    dispatch(getPostComments(id))
+  }, [dispatch, id])
 
   useEffect(() => {
     const fetchPost = async() => {
@@ -93,18 +95,22 @@ export const FullPost:React.FC = () => {
         <div className={style.comments}>
           <div className={style.comments__top}>
            <h4 className={style.comment__title}>Comments</h4>
-           <button className={style.addComment}>Leave a Comment</button>
+           <ScrollLink to='form' smooth={true} duration={1000}>
+            <button className={style.addComment}>Leave a Comment</button>
+           </ScrollLink>
           </div>
           <p className={style.comments__policy}><span>Comment policy:</span> We love comments and appreciate the time that readers spend to share ideas and give feedback. However, all comments are manually moderated and those deemed to be spam or solely promotional will be deleted.
           </p>
           <div className={style.commets__list}>
-              {comments.map((comment: commentType) => (
-                <CommentItem key={comment._id} comment={comment}/>
-              ))}
+          {comments?.map((comment: commentType) => (
+            comment ? (
+              <CommentItem key={comment._id} comment={comment}/>
+            ) : null
+          ))}
           </div>
           <div className={style.comments__create}>
             <p className={style.leave__reply}>Leave a Reply</p>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form name='form' onSubmit={handleSubmit(onSubmit)}>
                 <textarea
                 {...register("comment", {required:true})}
                 placeholder='Comment' />

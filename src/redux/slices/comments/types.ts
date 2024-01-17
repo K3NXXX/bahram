@@ -6,7 +6,9 @@ export type createCommentData = {
 
 export type commentType = {
     _id: string,
-    comment: string
+    comment: string,
+    createdAt: string,
+    author: string
 }
 
 export type getAllCommentsType = {

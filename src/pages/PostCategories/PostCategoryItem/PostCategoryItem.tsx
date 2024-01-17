@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import style from "./PostCategoryItem.module.scss"
 import { postCategoriesType } from '../../../lists/postCategories'
 import { Link } from 'react-router-dom'
@@ -8,6 +8,10 @@ type PostCategoryItemProps = {
 }
 
 export const PostCategoryItem:React.FC<PostCategoryItemProps> = ({category}) => {
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
   return (
     <Link to={category.route}>
         <div className={style.root}>

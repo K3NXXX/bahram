@@ -10,7 +10,7 @@ export const createComment = createAsyncThunk('comments/createComment', async(pa
     return data
 })
 
-export const getAllComments = createAsyncThunk('comments/getAllComments', async(id:getAllCommentsType) => {
+export const getPostComments = createAsyncThunk('comments/getPostComments', async(id:getAllCommentsType) => {
     const {data} = await axios.get(`/posts/comments/${id}`)
     return data
 })
@@ -41,15 +41,15 @@ const commentsSlice = createSlice({
         })
 
         //getAll
-        builder.addCase(getAllComments.pending, (state) => {
+        builder.addCase(getPostComments.pending, (state) => {
             state.loading = false
         })
-        builder.addCase(getAllComments.fulfilled, (state,action) => {
+        builder.addCase(getPostComments.fulfilled, (state,action) => {
             state.loading = true
             //@ts-ignore
             state.comments = action.payload
         })
-        builder.addCase(getAllComments.rejected, (state) => {
+        builder.addCase(getPostComments.rejected, (state) => {
             state.loading = false
         })
     }
