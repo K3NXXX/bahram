@@ -2,11 +2,16 @@ import React from 'react'
 import style from "./ReadingLists.module.scss"
 import { readingList } from '../../lists/readingList'
 import { ReadingItem } from './ReadingItem/ReadingItem'
+import { Link } from 'react-router-dom'
+import { POSTS_CATEGORIES_ROUTE } from '../../utils/consts'
 
 export const ReadingLists:React.FC = () => {
   return (
     <section className={style.root}>
+      <div className={style.top}>
         <h3 className={style.title}>Reading lists</h3>
+        <Link to={POSTS_CATEGORIES_ROUTE}>View all</Link>
+      </div>
         <div className={style.content}>
             {readingList.map((item) => (
                 <ReadingItem key={item.id} item={item}/>
