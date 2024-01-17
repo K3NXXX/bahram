@@ -1,7 +1,13 @@
 import React from 'react'
 import style from "./CommentItem.module.scss"
 import avatar from "../../assets/images/post/avatar.png"
-export const CommentItem:React.FC = () => {
+import { commentType } from '../../redux/slices/comments/types'
+
+type CommentItemType = {
+    comment: commentType
+}
+
+export const CommentItem:React.FC<CommentItemType> = ({comment}) => {
   return (
     <div className={style.root}>
         <div className={style.image__wrapper}>
@@ -16,8 +22,7 @@ export const CommentItem:React.FC = () => {
                 </div>
             </div>
             <div className={style.bottom}>
-                <p className={style.text}>I think, you forgot to mention a very good one:
-                    Thrive architect from thrivethemes. That thing is pretty powerful.
+                <p className={style.text}>{comment.comment}
                 </p>
             </div>
         </div>

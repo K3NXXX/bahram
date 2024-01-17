@@ -1,4 +1,4 @@
-import { ESSENTIALS_ROUTE } from "../utils/consts"
+import { ESSENTIALS_ROUTE, FREELANCE_ROUTE } from "../utils/consts"
 
 export type postSectionsType = {
     id: number,
@@ -21,6 +21,6 @@ export const postSections:postSectionsType[] = [
     {
         id: 3,
         title: 'Freelance',
-        route: ESSENTIALS_ROUTE
+        route: FREELANCE_ROUTE
     },
 ]

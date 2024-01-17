@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
 import { createPost } from '../../redux/slices/posts/postsSlice';
@@ -17,14 +17,15 @@ export const AddPost: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
+  const [type, setType] = useState('')
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
         const formData = new FormData();
         formData.append('title', title);
         formData.append('text', text);
+        formData.append('type', type);
         if (selectedFile !== null) {
             formData.append('image', selectedFile);
         }
@@ -35,6 +36,10 @@ export const AddPost: React.FC = () => {
         console.error(error);
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
 
   const handleClearData = () => {
         setTitle('')
@@ -47,16 +52,26 @@ export const AddPost: React.FC = () => {
       <div className={style.root}>
       
         <form onSubmit={submitHandler}>
-          <textarea value={title}
+          <textarea required value={title}
             className={style.title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Title"
           />
-          <textarea value={text}
+          <textarea required value={text}
             className={style.text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Text"
           />
+         <select required value={type} onChange={(e) => setType(e.target.value)}>
+            <option value="" disabled>Choose a post type</option>
+            <option value="Essentials">Essentials</option>
+            <option value="UX Design">UX Design</option>
+            <option value="UI Design">UI Design</option>
+            <option value="SEO">SEO</option>
+            <option value="Typography">Typography</option>
+            <option value="How not to">How not to</option>
+            <option value="Freelance">Freelance</option>
+          </select>
           <div className={style.file_upload_wrapper} data-text="Select your file!">
             <input onChange={(e) => setSelectedFile(e.target.files ? e.target.files[0] : null)} name="file-upload-field" type="file" className={style.file_upload_field} value=""/>
           </div>

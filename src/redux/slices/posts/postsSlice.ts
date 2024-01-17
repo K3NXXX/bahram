@@ -7,7 +7,7 @@ export const getPosts = createAsyncThunk('posts/getPosts', async() => {
 })
 
 export const createPost = createAsyncThunk('posts/createPost', async(params:FormData) => {
-    const {data} = await axios.post('/posts', params)
+    const {data} = await axios.post(`/posts`, params)
     return data
 })
 

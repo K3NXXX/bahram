@@ -11,22 +11,35 @@ import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
-import { useSelector } from 'react-redux'
-import { RootState } from '../../redux/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '../../redux/store'
 import { CommentItem } from '../../components/Comment/CommentItem'
 import { useForm } from 'react-hook-form'
-import { CommentFormData } from '../../redux/slices/comments/types'
+import { commentType, createCommentData } from '../../redux/slices/comments/types'
+import { createComment, getAllComments } from '../../redux/slices/comments/commentsSlice'
 
 export const FullPost:React.FC = () => {
-  const {register, handleSubmit, formState:{errors}} = useForm<CommentFormData>({mode: 'onChange'})
+  const dispatch = useDispatch<AppDispatch>()
+  const {register, reset, handleSubmit, formState:{errors}} = useForm<createCommentData>({mode: 'onChange'})
   const comments = useSelector((state:RootState) => state.commentsSlice.comments)
   const [post, setPost] = useState<postType | null>(null)
   const [like, setLike] = useState(false)
   const {id} = useParams<{ id: string }>();
+  console.log(comments);
+  
+  const onSubmit = (data: createCommentData) => {
+    const formData = {
+      id: id!,
+      comment: data.comment
+    };
+    dispatch(createComment(formData));
+    reset();
+  };
 
-  const onSubmit = (data: CommentFormData) => {
-    console.log(data, "OK")
-  }
+  useEffect(() => {
+    //@ts-ignore
+    dispatch(getAllComments(id))
+  }, [id])
 
   useEffect(() => {
     const fetchPost = async() => {
@@ -85,11 +98,9 @@ export const FullPost:React.FC = () => {
           <p className={style.comments__policy}><span>Comment policy:</span> We love comments and appreciate the time that readers spend to share ideas and give feedback. However, all comments are manually moderated and those deemed to be spam or solely promotional will be deleted.
           </p>
           <div className={style.commets__list}>
-              {/* {comments.map((comment) => (
-                <CommentItem/>
-              ))} */}
-              <CommentItem/>
-              <CommentItem/>
+              {comments.map((comment: commentType) => (
+                <CommentItem key={comment._id} comment={comment}/>
+              ))}
           </div>
           <div className={style.comments__create}>
             <p className={style.leave__reply}>Leave a Reply</p>
@@ -97,20 +108,13 @@ export const FullPost:React.FC = () => {
                 <textarea
                 {...register("comment", {required:true})}
                 placeholder='Comment' />
-                <input
-                {...register("email", 
-                {required:true, 
-                pattern: {
-                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: "Invalid email"
-                }
-                })}
-                type="text" placeholder='Email' />
                 <div className={style.policy}>
-                  <input type="checkbox" />
+                  <input
+                  {...register('checkbox', {required:true})}
+                  type="checkbox" />
                   <p className={style.copyright}>I agree to the Terms and Conditions and Privacy Policy</p>
                 </div>
-                <button>Post Comment</button>
+                <button type='submit'>Post Comment</button>
             </form>
           </div>
         </div>

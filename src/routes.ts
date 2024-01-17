@@ -1,10 +1,16 @@
 import { Home } from "./pages/Home/Home";
 import { Auth } from "./pages/Auth/Auth";
-import { ACCOUNT_ROUTE, ADDPOST_ROUTE, ESSENTIALS_ROUTE, FULLPOST_ROUTE, HOME_ROUTE, REGISTER_ROUTE } from "./utils/consts";
+import { ACCOUNT_ROUTE, ADDPOST_ROUTE, ESSENTIALS_ROUTE, FREELANCE_ROUTE, FULLPOST_ROUTE, HOME_ROUTE, HOW_NOT_TO_ROUTE, REGISTER_ROUTE, SEO_ROUTE, TYPOGRAPHY_ROUTE, UI_DESIGN_ROUTE, UX_DESIGN_ROUTE } from "./utils/consts";
 import { Account } from "./pages/Account/Account";
 import { AddPost } from "./pages/AddPost/AddPost";
-import { EssentialsPosts } from "./pages/EssentialsPosts/EssentialsPosts";
+import { EssentialsPosts } from "./pages/Posts/EssentialsPosts";
 import { FullPost } from "./pages/FullPost/FullPost";
+import { FreelancePosts } from "./pages/Posts/FreelancePosts";
+import { HowNotToPosts } from "./pages/Posts/HowNotToPosts";
+import { SeoPosts } from "./pages/Posts/SeoPosts";
+import { TypographyPosts } from "./pages/Posts/TypographyPosts";
+import { UiDesignPosts } from "./pages/Posts/UiDesignPosts";
+import { UxDesignPosts } from "./pages/Posts/UxDesignPosts";
 
 export const routes = [
     {
@@ -24,11 +30,32 @@ export const routes = [
         Component: AddPost
     },
     {
+        path: FREELANCE_ROUTE,
+        Component: FreelancePosts
+    },
+    {
+        path: HOW_NOT_TO_ROUTE,
+        Component: HowNotToPosts
+    },
+    {
+        path: SEO_ROUTE + '/:id',
+        Component: SeoPosts
+    },
+    {
+        path: TYPOGRAPHY_ROUTE + '/:id',
+        Component: TypographyPosts
+    },
+    {
+        path: UI_DESIGN_ROUTE + '/:id',
+        Component: UiDesignPosts
+    },
+    {
+        path: UX_DESIGN_ROUTE + '/:id',
+        Component: UxDesignPosts
+    },
+    {
         path: ESSENTIALS_ROUTE,
         Component: EssentialsPosts
     },
-    {
-        path: FULLPOST_ROUTE + '/:id',
-        Component: FullPost
-    },
+    
 ]
