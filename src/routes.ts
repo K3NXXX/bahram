@@ -1,6 +1,6 @@
 import { Home } from "./pages/Home/Home";
 import { Auth } from "./pages/Auth/Auth";
-import { ACCOUNT_ROUTE, ADDPOST_ROUTE, ESSENTIALS_ROUTE, FREELANCE_ROUTE, FULLPOST_ROUTE, HOME_ROUTE, HOW_NOT_TO_ROUTE, POSTS_CATEGORIES_ROUTE, REGISTER_ROUTE, SEO_ROUTE, TYPOGRAPHY_ROUTE, UI_DESIGN_ROUTE, UX_DESIGN_ROUTE } from "./utils/consts";
+import { ACCOUNT_ROUTE, ADDPOST_ROUTE, ESSENTIALS_ROUTE, FREELANCE_ROUTE, FULLPOST_ROUTE, HOME_ROUTE, HOW_NOT_TO_ROUTE, POPULAR_ROUTE, POSTS_CATEGORIES_ROUTE, REGISTER_ROUTE, SEO_ROUTE, TYPOGRAPHY_ROUTE, UI_DESIGN_ROUTE, UX_DESIGN_ROUTE } from "./utils/consts";
 import { Account } from "./pages/Account/Account";
 import { AddPost } from "./pages/AddPost/AddPost";
 import { EssentialsPosts } from "./pages/Posts/EssentialsPosts";
@@ -12,6 +12,7 @@ import { TypographyPosts } from "./pages/Posts/TypographyPosts";
 import { UiDesignPosts } from "./pages/Posts/UiDesignPosts";
 import { UxDesignPosts } from "./pages/Posts/UxDesignPosts";
 import { PostCategories } from "./pages/PostCategories/PostCategories";
+import { PopularPosts } from "./pages/Posts/PopularPosts";
 
 export const routes = [
     {
@@ -39,19 +40,19 @@ export const routes = [
         Component: HowNotToPosts
     },
     {
-        path: SEO_ROUTE + '/:id',
+        path: SEO_ROUTE ,
         Component: SeoPosts
     },
     {
-        path: TYPOGRAPHY_ROUTE + '/:id',
+        path: TYPOGRAPHY_ROUTE ,
         Component: TypographyPosts
     },
     {
-        path: UI_DESIGN_ROUTE + '/:id',
+        path: UI_DESIGN_ROUTE ,
         Component: UiDesignPosts
     },
     {
-        path: UX_DESIGN_ROUTE + '/:id',
+        path: UX_DESIGN_ROUTE ,
         Component: UxDesignPosts
     },
     {
@@ -66,5 +67,14 @@ export const routes = [
         path: POSTS_CATEGORIES_ROUTE,
         Component: PostCategories
     },
+    {
+        path: POPULAR_ROUTE,
+        Component: PopularPosts
+    },
+    {
+        path: FULLPOST_ROUTE,
+        Component: FullPost
+    },
+   
     
 ]

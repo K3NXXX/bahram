@@ -13,7 +13,7 @@ export const UxDesignPosts:React.FC = () => {
     }, [])
   return (
     <div className={style.root}>
-        <h3 className={style.title}>Essentials</h3>
+        <h3 className={style.title}>UX Design</h3>
         <div className={style.content}>
             {uxPosts.map((post: postType) => (
                 <PostItem key={post._id} post = {post}/>

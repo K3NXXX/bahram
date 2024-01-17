@@ -5,7 +5,7 @@ import { PostItem } from '../../components/PostItem/PostItem'
 import { postType } from '../../redux/slices/posts/types'
 import { useSelector } from 'react-redux'
 export const PopularPosts:React.FC = () => {
-    const posts = useSelector((state:RootState) => state.postsSlice.posts.items)
+    const posts = useSelector((state:RootState) => state.postsSlice.popularPosts.items)
     const typographyPosts = posts.filter((post:postType) => post.type === "Typography")
 
     useEffect(() => {
@@ -13,7 +13,7 @@ export const PopularPosts:React.FC = () => {
     }, [])
   return (
     <div className={style.root}>
-        <h3 className={style.title}>Essentials</h3>
+        <h3 className={style.title}>Popular</h3>
         <div className={style.content}>
             {typographyPosts.map((post: postType) => (
                 <PostItem key={post._id} post = {post}/>

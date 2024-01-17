@@ -13,7 +13,7 @@ export const HowNotToPosts:React.FC = () => {
     }, [])
   return (
     <div className={style.root}>
-        <h3 className={style.title}>Essentials</h3>
+        <h3 className={style.title}>How not to</h3>
         <div className={style.content}>
             {howNotToPosts.map((post: postType) => (
                 <PostItem key={post._id} post = {post}/>

@@ -16,6 +16,10 @@ const initialState = {
         items: [],
         status: 'loading'
     },
+    popularPosts: {
+        items: [],
+        status: 'loading'
+    },
     tags: {
         items: [],
         status: 'loading'
@@ -31,15 +35,18 @@ const postsSlice = createSlice({
         //getPosts
         builder.addCase(getPosts.pending, (state) => {
             state.posts.items = []
+            state.popularPosts.items = []
             state.posts.status = 'loading'
         })
         builder.addCase(getPosts.fulfilled, (state,action) => {
+            state.posts.items = action.payload.posts;
+            state.popularPosts.items = action.payload.popularPosts;
             state.posts.status = 'loaded'
-            state.posts.items = action.payload
         })
         builder.addCase(getPosts.rejected, (state) => {
-            state.posts.status = 'error'
             state.posts.items = []
+            state.popularPosts.items = []
+            state.posts.status = 'error'
         })
         //createPost
         builder.addCase(createPost.pending, (state) => {

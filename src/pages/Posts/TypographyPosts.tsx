@@ -13,7 +13,7 @@ export const TypographyPosts:React.FC = () => {
     }, [])
   return (
     <div className={style.root}>
-        <h3 className={style.title}>Essentials</h3>
+        <h3 className={style.title}>Typography</h3>
         <div className={style.content}>
             {typographyPosts.map((post: postType) => (
                 <PostItem key={post._id} post = {post}/>
