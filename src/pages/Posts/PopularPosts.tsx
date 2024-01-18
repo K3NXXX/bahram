@@ -6,7 +6,6 @@ import { postType } from '../../redux/slices/posts/types'
 import { useSelector } from 'react-redux'
 export const PopularPosts:React.FC = () => {
     const posts = useSelector((state:RootState) => state.postsSlice.popularPosts.items)
-    const typographyPosts = posts.filter((post:postType) => post.type === "Typography")
 
     useEffect(() => {
       window.scrollTo(0,0)
@@ -15,9 +14,9 @@ export const PopularPosts:React.FC = () => {
     <div className={style.root}>
         <h3 className={style.title}>Popular</h3>
         <div className={style.content}>
-            {typographyPosts.map((post: postType) => (
+        {posts.length > 0 ? posts.map((post: postType) => (
                 <PostItem key={post._id} post = {post}/>
-            ))}
+            )) : <p>No posts yet</p>}
         </div>
     </div>
   )

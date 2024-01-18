@@ -21,19 +21,42 @@ export const AddPost: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
+  
     try {
-        const formData = new FormData();
-        formData.append('title', title);
-        formData.append('text', text);
-        formData.append('type', type);
-        if (selectedFile !== null) {
-            formData.append('image', selectedFile);
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('text', text);
+      formData.append('type', type);
+  
+      if (selectedFile !== null) {
+        if (selectedFile.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            if (event.target) {
+              const img = new Image();
+              img.src = event.target.result as string;
+  
+              img.onload = () => {
+                if (img.width >= 200) {
+                  formData.append('image', selectedFile);
+                  dispatch(createPost(formData));
+                  toast.success("Post added successfully")
+                  navigate(HOME_ROUTE);
+                } else {
+                  toast.error("The uploaded image must have a minimum width of 200 pixels.");
+                }
+              };
+            }
+          };
+          reader.readAsDataURL(selectedFile);
+        } else {
+          toast.error("Please select a valid image file.");
         }
-        await dispatch(createPost(formData));
-        toast.success("Post added successfully")
-        navigate(HOME_ROUTE)
+      } else {
+        toast.error("Please select an image file.");
+      }
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
   };
 
@@ -72,8 +95,14 @@ export const AddPost: React.FC = () => {
             <option value="How not to">How not to</option>
             <option value="Freelance">Freelance</option>
           </select>
-          <div className={style.file_upload_wrapper} data-text="Select your file!">
-            <input onChange={(e) => setSelectedFile(e.target.files ? e.target.files[0] : null)} name="file-upload-field" type="file" className={style.file_upload_field} value=""/>
+          <div className={style.file_upload_wrapper} data-text="Upload post image!">
+          <input
+            required
+            onChange={(e) => setSelectedFile(e.target.files ? e.target.files[0] : null)}
+            name="file-upload-field"
+            type="file"
+            className={style.file_upload_field}
+          />
           </div>
           <div className={style.buttons}>
             <button className={style.addPost} type="submit">Add post</button>

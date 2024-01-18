@@ -5,8 +5,7 @@ import { PostItem } from '../../components/PostItem/PostItem'
 import { postType } from '../../redux/slices/posts/types'
 import { useSelector } from 'react-redux'
 export const TypographyPosts:React.FC = () => {
-    const posts = useSelector((state:RootState) => state.postsSlice.posts.items)
-    const typographyPosts = posts.filter((post:postType) => post.type === "Typography")
+    const posts = useSelector((state:RootState) => state.postsSlice.typographyPosts)
 
     useEffect(() => {
       window.scrollTo(0,0)
@@ -15,9 +14,9 @@ export const TypographyPosts:React.FC = () => {
     <div className={style.root}>
         <h3 className={style.title}>Typography</h3>
         <div className={style.content}>
-            {typographyPosts.map((post: postType) => (
+        {posts.length > 0 ? posts.map((post: postType) => (
                 <PostItem key={post._id} post = {post}/>
-            ))}
+            )) : <p>No posts yet</p>}
         </div>
     </div>
   )

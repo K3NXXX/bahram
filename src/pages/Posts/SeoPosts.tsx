@@ -6,8 +6,7 @@ import { PostItem } from '../../components/PostItem/PostItem'
 import { useSelector } from 'react-redux'
 
 export const SeoPosts:React.FC = () => {
-    const posts = useSelector((state:RootState) => state.postsSlice.posts.items)
-    const seoPosts = posts.filter((post:postType) => post.type === "Seo")
+    const posts = useSelector((state:RootState) => state.postsSlice.seoPosts)
 
     useEffect(() => {
       window.scrollTo(0,0)
@@ -16,9 +15,9 @@ export const SeoPosts:React.FC = () => {
     <div className={style.root}>
         <h3 className={style.title}>SEO</h3>
         <div className={style.content}>
-            {seoPosts.map((post: postType) => (
+        {posts.length > 0 ? posts.map((post: postType) => (
                 <PostItem key={post._id} post = {post}/>
-            ))}
+            )) : <p>No posts yet</p>}
         </div>
     </div>
   )

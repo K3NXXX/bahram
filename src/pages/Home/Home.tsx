@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Intro } from '../../components/Intro/Intro'
 import { ReadingLists } from '../../components/ReadingLists/ReadingLists'
-import { PostSections } from '../../components/PostSections/PostSections'
+import { PostLayout } from '../../components/PostSections/PostLayout/PostLayout'
 
 
 export const Home:React.FC = () => {
@@ -11,7 +11,7 @@ export const Home:React.FC = () => {
   return (
     <div>
         <Intro/>
-        <PostSections/>
+        <PostLayout/>
         <ReadingLists/>
     </div>
   )

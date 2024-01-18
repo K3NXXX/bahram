@@ -1,11 +1,14 @@
 .root {
-    margin-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     cursor: pointer;
+    border-bottom: 1px solid #c7c7c7;
     
 }
 .content {
     img {
         margin-bottom: 20px;
+        max-height: 400px;
        
     }
     .author {

@@ -18,16 +18,19 @@ import { useForm } from 'react-hook-form'
 import { commentType, createCommentData } from '../../redux/slices/comments/types'
 import { createComment, getPostComments } from '../../redux/slices/comments/commentsSlice'
 import { Link as ScrollLink} from 'react-scroll';
+import { toast } from 'react-toastify'
+import { likePost } from '../../redux/slices/posts/postsSlice'
 
 
 export const FullPost:React.FC = () => {
   const dispatch = useDispatch<AppDispatch>()
   const {register, reset, handleSubmit} = useForm<createCommentData>({mode: 'onChange'})
   const comments = useSelector((state:RootState) => state.commentsSlice.comments)
+  const likes = useSelector((state:RootState) => state.postsSlice.likes.items)
   const [post, setPost] = useState<postType | null>(null)
   const [like, setLike] = useState(false)
   const {id} = useParams<{ id: string }>();
-  console.log(comments);
+  console.log(likes);
   
   const onSubmit = (data: createCommentData) => {
     const formData = {
@@ -35,6 +38,7 @@ export const FullPost:React.FC = () => {
       comment: data.comment
     };
     dispatch(createComment(formData));
+    toast.success("Comment was created successfully")
     reset();
   };
 
@@ -68,9 +72,14 @@ export const FullPost:React.FC = () => {
                       <FaPinterest />
                   </IconContext.Provider>
                 </div>
-                <img src={`http://localhost:7777/${post.imageUrl}`} alt="post" />
+                {post.imageUrl ? (
+                  <img src={`http://localhost:7777/${post.imageUrl}`} alt="post" />
+                ): null}
                 <div className={style.statistic}>
-                    <div onClick={() => setLike(!like)} className={style.likes}>
+                    <div onClick={() => { 
+                      setLike(!like)
+                      dispatch(likePost(id))
+                      }} className={style.likes}>
                       {like ? (
                          <IconContext.Provider value={{size: '30px', color: 'red'}}>
                             <IoMdHeart />
@@ -80,7 +89,7 @@ export const FullPost:React.FC = () => {
                           <IoMdHeartEmpty />
                         </IconContext.Provider>
                       )}
-                      <p className={style.count}>12 k</p>
+                      <p className={style.count}>{likes}</p>
                     </div>
                     <div  className={style.views}>
                       <IconContext.Provider value={{size: '30px'}}>

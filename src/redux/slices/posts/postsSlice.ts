@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "../../../utils/axios"
+import { RootState } from "../../store"
 
 export const getPosts = createAsyncThunk('posts/getPosts', async() => {
     const {data} = await axios.get('/posts')
@@ -11,6 +12,11 @@ export const createPost = createAsyncThunk('posts/createPost', async(params:Form
     return data
 })
 
+export const likePost = createAsyncThunk('posts/likePost', async (postId: string | undefined) => {
+    const { data } = await axios.post(`/posts/${postId}/like`);
+    return data;
+  });
+
 const initialState = {
     posts: {
         items: [],
@@ -20,10 +26,18 @@ const initialState = {
         items: [],
         status: 'loading'
     },
-    tags: {
-        items: [],
+    likes: {
+        items: 0,
         status: 'loading'
-    }
+    },
+    freelancePosts: [],
+    essentialsPosts: [],
+    howNotToPosts: [],
+    uiDesignPosts: [],
+    uxDesignPosts: [],
+    typographyPosts: [],
+    seoPosts: [],
+   
 }
 
 const postsSlice = createSlice({
@@ -41,6 +55,13 @@ const postsSlice = createSlice({
         builder.addCase(getPosts.fulfilled, (state,action) => {
             state.posts.items = action.payload.posts;
             state.popularPosts.items = action.payload.popularPosts;
+            state.freelancePosts = action.payload.freelancePosts
+            state.howNotToPosts = action.payload.howNotToPosts
+            state.uiDesignPosts = action.payload.uiDesignPosts
+            state.uxDesignPosts = action.payload.uxDesignPosts
+            state.typographyPosts = action.payload.typographyPosts
+            state.essentialsPosts = action.payload.essentialsPosts
+            state.seoPosts = action.payload.seoPosts
             state.posts.status = 'loaded'
         })
         builder.addCase(getPosts.rejected, (state) => {
@@ -59,7 +80,23 @@ const postsSlice = createSlice({
         builder.addCase(createPost.rejected, (state) => {
             state.posts.status = 'error'
         })
+        //likePost
+        builder.addCase(likePost.pending, (state) => {
+            state.likes.status = 'loading';
+        });
+
+        builder.addCase(likePost.fulfilled, (state, action) => {
+            state.likes.status = 'loaded';
+            state.likes.items = action.payload.likes;
+        });
+
+        builder.addCase(likePost.rejected, (state) => {
+            state.likes.status = 'error';
+        });
     }
 })
 
+
 export default postsSlice.reducer
+export const freelancePostsSelector = (state: RootState) => state.postsSlice.freelancePosts;
+

@@ -5,8 +5,7 @@ import { PostItem } from '../../components/PostItem/PostItem'
 import { postType } from '../../redux/slices/posts/types'
 import { useSelector } from 'react-redux'
 export const UxDesignPosts:React.FC = () => {
-    const posts = useSelector((state:RootState) => state.postsSlice.posts.items)
-    const uxPosts = posts.filter((post:postType) => post.type === "UX Design")
+    const posts = useSelector((state:RootState) => state.postsSlice.uxDesignPosts)
 
     useEffect(() => {
       window.scrollTo(0,0)
@@ -15,9 +14,9 @@ export const UxDesignPosts:React.FC = () => {
     <div className={style.root}>
         <h3 className={style.title}>UX Design</h3>
         <div className={style.content}>
-            {uxPosts.map((post: postType) => (
+        {posts.length > 0 ? posts.map((post: postType) => (
                 <PostItem key={post._id} post = {post}/>
-            ))}
+            )) : <p>No posts yet</p>}
         </div>
     </div>
   )
