@@ -16,6 +16,7 @@ const App:React.FC = () => {
   const dispatch = useDispatch<AppDispatch>()
   const location = useLocation();
   const [isHome, setIsHome] = useState(false)
+  const [isLogin, setIsLogin] = useState(false)
 
   useEffect(() => {
     dispatch(getMe())
@@ -28,11 +29,12 @@ const App:React.FC = () => {
   useEffect(() => {
     const currentPath = location.pathname;
     setIsHome(currentPath === "/bahram");
+    setIsLogin(currentPath === "/bahram/registration");
   }, [location.pathname]);
 
   return (
     <div className={style.App}>
-      {isHome ? <HomeHeader/> : <Header/>}
+      {isHome || isLogin ? <HomeHeader/> : <Header/>}
         <main className={style.main}>
           <Routes>
             {routes.map(({path, Component}) => (

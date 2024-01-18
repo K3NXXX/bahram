@@ -8,8 +8,17 @@
     right: 0;
     left: 0;
 	flex-direction: column;
-	flex-direction: column;
 	gap: 20px 0;
+}
+.search__list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%; 
+	top: 120%;
+    transform: translateX(-50%); 
+	gap: 1px 0;
+	z-index: 100;
 }
 .header__top {
 	display: grid;
@@ -54,7 +63,7 @@
 		position: relative;
 		.search__icon {
 			position: absolute;
-			top: 7px;
+			top: 11px;
 			left: 10px;
 			cursor: pointer;
 			user-select: none;
@@ -62,7 +71,7 @@
 		.close__icon {
 			user-select: none;
 			position: absolute;
-			top: 7px;
+			top: 10px;
 			right: 10px;
 			cursor: pointer;
 		}
