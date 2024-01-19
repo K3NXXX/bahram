@@ -63,7 +63,7 @@ const authSlice = createSlice({
         builder.addCase(fetchRegister.fulfilled, (state, action) => {
             state.isLoading = false
             state.status = action.payload.message
-            state.status = action.payload.user
+            state.user = action.payload.user
             state.token = action.payload.token
         })
         builder.addCase(fetchRegister.rejected, (state) => {
@@ -78,7 +78,7 @@ const authSlice = createSlice({
         builder.addCase(fetchLogin.fulfilled, (state, action) => {
             state.isLoading = false
             state.status = action.payload.message
-            state.status = action.payload.user
+            state.user = action.payload.user
             state.token = action.payload.token
         })
         builder.addCase(fetchLogin.rejected, (state) => {
@@ -93,7 +93,7 @@ const authSlice = createSlice({
         builder.addCase(getMe.fulfilled, (state, action) => {
             state.isLoading = false
             state.status = action.payload.message
-            state.status = action.payload.user
+            state.user = action.payload.user
             state.token = action.payload.token
         })
         builder.addCase(getMe.rejected, (state) => {

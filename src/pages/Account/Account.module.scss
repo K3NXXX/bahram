@@ -1,0 +1,157 @@
+.root {
+    max-width: 1202px;
+    padding: 0 15px;
+    margin: 0 auto;
+    padding-top: 180px;
+    .title {
+        color: #000;
+        font-family: "Open Sans";
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 58px; 
+        letter-spacing: -0.225px;
+        margin-bottom: 20px;
+    }
+    .content {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 0 50px;
+        .left {
+            .left__list {
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px 0;
+                border: 3px solid #3e3180;
+                min-height: 500px;
+                border-radius: 10px;
+                li {
+                    color: var(--3, #212121);
+                    font-family: "Open Sans";
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    cursor: pointer;
+                    user-select: none;
+                    border-left: 3px solid transparent;
+                    padding-left: 10px;
+                }
+                .active {
+                    border-left: 3px solid #3e3180;
+
+                }
+            }
+        }
+    }
+    
+    .right {
+        border-radius: 15px;
+        padding: 15px;
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        .content__user {
+            .userInfo {
+                display: flex;
+                flex-direction: column;
+                gap: 15px 0;
+                .username {
+                    display: flex;
+                    gap: 0 10px;
+                    .text {
+                        color: #3e3180;
+                    }
+                }
+                .email {
+                    display: flex;
+                    gap: 0 10px;
+                    .text {
+                        color: #3e3180;
+                    }  
+                } 
+                .createdAt {
+                    display: flex;
+                    gap: 0 10px;
+                    margin-bottom: 20px;
+                    .text {
+                        color: #3e3180;
+                }
+                }
+                .avatar {
+                    display: flex;
+                    gap: 0px 30px;
+                    align-items: center;
+                    .text {
+                        color: #3e3180;
+                    }
+                    img {
+                        max-width: 150px;
+                        border:transparent 3px solid;
+                        border-radius: 100%;
+                        transition: 0.3s ease all;
+                        &:hover {
+                            border:#3e3180 3px solid;
+                        }
+                    }
+                    .buttons {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px 0;
+                        input {
+                            display: none;
+                        }
+                        label {
+                            color: #FFF;
+                            font-family: "Open Sans";
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                            letter-spacing: -0.375px;
+                            border-radius: 10px;
+                            background: #9283E0;
+                            padding: 12px 19px;
+                            transition: 0.3s ease all;
+                            &:hover {
+                                opacity: 0.7;
+                            }
+                        }
+                        button {
+                            color: #FFF;
+                            font-family: "Open Sans";
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                            letter-spacing: -0.375px;
+                            border-radius: 10px;
+                            background: #FF5480;
+                            padding: 12px 19px;
+                            transition: 0.3s ease all;
+                            &:hover {
+                                opacity: 0.7;
+                            }
+                        }
+                    }
+                  }
+            }
+        }
+        .logOut {
+            color: #FFF;
+            font-family: "Open Sans";
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            letter-spacing: -0.375px;
+            border-radius: 10px;
+            background: #9283E0;
+            padding: 12px 19px;
+            transition: 0.3s ease all;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
