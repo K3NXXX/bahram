@@ -30,8 +30,7 @@ export const FullPost:React.FC = () => {
   const [post, setPost] = useState<postType | null>(null)
   const [like, setLike] = useState(false)
   const {id} = useParams<{ id: string }>();
-  console.log(likes);
-  
+  console.log(comments)
   const onSubmit = (data: createCommentData) => {
     const formData = {
       id: id!,

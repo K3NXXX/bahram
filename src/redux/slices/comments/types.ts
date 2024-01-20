@@ -1,3 +1,5 @@
+import { userType } from "../auth/types"
+
 export type createCommentData = {
     id: string,
     comment: string | undefined,
@@ -8,7 +10,8 @@ export type commentType = {
     _id: string,
     comment: string,
     createdAt: string,
-    author: string
+    username: string,
+    avatar: string
 }
 
 export type getAllCommentsType = {

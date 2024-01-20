@@ -3,8 +3,12 @@
     gap: 0 25px;
     border-bottom: 1px solid rgb(199, 199, 199);
     padding: 77px 0;
+    max-width: 779px;
     .avatar {
-        border-radius: 100%;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        object-fit:cover;
     }
     .top {
         width: 600px;
@@ -41,6 +45,8 @@
         font-style: normal;
         font-weight: 400;
         line-height: 40px;
+        max-width: 600px;
+        word-wrap: break-word;
     }
     
 }

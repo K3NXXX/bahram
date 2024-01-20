@@ -15,7 +15,13 @@ export const createPost = createAsyncThunk('posts/createPost', async(params:Form
 export const likePost = createAsyncThunk('posts/likePost', async (postId: string | undefined) => {
     const { data } = await axios.post(`/posts/${postId}/like`);
     return data;
-  });
+});
+
+  export const getUserPosts = createAsyncThunk('posts/getUserPosts', async () => {
+    const { data } = await axios.get(`/posts/user/me`);
+    return data;
+});
+
 
 const initialState = {
     posts: {
@@ -30,6 +36,7 @@ const initialState = {
         items: 0,
         status: 'loading'
     },
+    myPosts: [],
     freelancePosts: [],
     essentialsPosts: [],
     howNotToPosts: [],
@@ -80,6 +87,19 @@ const postsSlice = createSlice({
         builder.addCase(createPost.rejected, (state) => {
             state.posts.status = 'error'
         })
+        //getUserPosts
+        builder.addCase(getUserPosts.pending, (state) => {
+            state.posts.status = 'loading'
+        })
+        builder.addCase(getUserPosts.fulfilled, (state,action) => {
+            state.posts.status = 'loaded'
+            //@ts-ignore
+            state.myPosts.push(action.payload)
+        })
+        builder.addCase(getUserPosts.rejected, (state) => {
+            state.posts.status = 'error'
+        })
+        
         //likePost
         builder.addCase(likePost.pending, (state) => {
             state.likes.status = 'loading';

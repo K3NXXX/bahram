@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "../../../utils/axios"
-import { createCommentData, getAllCommentsType } from "./types"
+import { createCommentData } from "./types"
 
 
 export const createComment = createAsyncThunk('comments/createComment', async(params:createCommentData) => {

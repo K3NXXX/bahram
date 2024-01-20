@@ -15,8 +15,14 @@
     }
     .content {
         display: grid;
-        grid-template-columns: 250px 1fr;
+        grid-template-columns: 250px 1fr 130px;
         gap: 0 50px;
+        .posts__list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px 0;
+          
+        }
         .left {
             .left__list {
                 padding: 15px;
@@ -51,6 +57,7 @@
         padding: 15px;
         display: grid;
         grid-template-columns: 1fr 200px;
+      
         .content__user {
             .userInfo {
                 display: flex;
@@ -82,26 +89,38 @@
                     display: flex;
                     gap: 0px 30px;
                     align-items: center;
-                    .text {
-                        color: #3e3180;
-                    }
-                    img {
-                        max-width: 150px;
-                        border:transparent 3px solid;
-                        border-radius: 100%;
-                        transition: 0.3s ease all;
-                        &:hover {
-                            border:#3e3180 3px solid;
+                    .avatar__content {
+                        position: relative;
+                
+                        img {
+                            width: 150px;
+                            height: 150px;
+                            border: transparent 3px solid;
+                            object-fit: cover; 
+                            border-radius: 50%; 
+                        }
+                        input {
+                            display: none;
+                            border-radius: 100%;
+                        }
+                        label {
+                            position: absolute;
+                            cursor: pointer;
+                            width: 150px;
+                            height: 150px;
+                            border-radius: 100%;
+                            overflow: hidden;
+                            position: absolute; 
+                            top: 0; 
+                            left: 0; 
+                          
                         }
                     }
                     .buttons {
                         display: flex;
                         flex-direction: column;
                         gap: 20px 0;
-                        input {
-                            display: none;
-                        }
-                        label {
+                        .upload {
                             color: #FFF;
                             font-family: "Open Sans";
                             font-size: 18px;
@@ -137,21 +156,21 @@
                   }
             }
         }
-        .logOut {
-            color: #FFF;
-            font-family: "Open Sans";
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: normal;
-            letter-spacing: -0.375px;
-            border-radius: 10px;
-            background: #9283E0;
-            padding: 12px 19px;
-            transition: 0.3s ease all;
-            &:hover {
-                opacity: 0.7;
-            }
+    }
+    .logOut {
+        color: #FFF;
+        font-family: "Open Sans";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -0.375px;
+        border-radius: 10px;
+        background: #9283E0;
+        padding: 12px 19px;
+        transition: 0.3s ease all;
+        &:hover {
+            opacity: 0.7;
         }
     }
 }

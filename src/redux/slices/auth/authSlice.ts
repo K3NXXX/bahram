@@ -36,6 +36,24 @@ export const getMe = createAsyncThunk('auth/getMe', async() => {
     }
 })
 
+export const uploadAvatar = createAsyncThunk('auth/uploadAvatar', async(params: FormData) => {
+    try {
+        const {data} = await axios.post(`auth/avatar`, params)
+        return data        
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+export const deleteAvatar = createAsyncThunk('auth/deleteAvatar', async(a) => {
+    try {
+        const {data} = await axios.delete(`auth/avatar`)
+        return data        
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 const initialState: initialStateType = {
     user: null,
     token: null,
@@ -97,6 +115,36 @@ const authSlice = createSlice({
             state.token = action.payload.token
         })
         builder.addCase(getMe.rejected, (state) => {
+            state.isLoading = false
+        })
+
+        //uploadAvatar
+        builder.addCase(uploadAvatar.pending, (state) => {
+            state.isLoading = true
+            state.status = null
+        })
+        builder.addCase(uploadAvatar.fulfilled, (state, action) => {
+            //@ts-ignore
+            state.user = {
+                ...state.user,
+                avatar: action.payload.user.avatar,
+            };
+            state.isLoading = false;
+        });
+        builder.addCase(uploadAvatar.rejected, (state) => {
+            state.isLoading = false
+        })
+
+         //deleteAvatar
+         builder.addCase(deleteAvatar.pending, (state) => {
+            state.isLoading = true
+            state.status = null
+        })
+        builder.addCase(deleteAvatar.fulfilled, (state, action) => {
+            state.user = action.payload.user
+            state.isLoading = false;
+        });
+        builder.addCase(deleteAvatar.rejected, (state) => {
             state.isLoading = false
         })
     }

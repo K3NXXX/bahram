@@ -4,7 +4,10 @@ import { ReadingLists } from '../../components/ReadingLists/ReadingLists'
 import { PostLayout } from '../../components/PostSections/PostLayout/PostLayout'
 
 
+
 export const Home:React.FC = () => {
+  
+  
   useEffect(() => {
     window.scrollTo(0,0)
   }, [])
