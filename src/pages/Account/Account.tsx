@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { deleteAvatar, logout, uploadAvatar } from "../../redux/slices/auth/authSlice"
-import { useNavigate } from "react-router-dom"
-import { HOME_ROUTE } from "../../utils/consts"
+import { Link, useNavigate } from "react-router-dom"
+import { ADDPOST_ROUTE, HOME_ROUTE } from "../../utils/consts"
 import { useEffect, useState } from "react"
 import { AppDispatch, RootState } from "../../redux/store"
 import { format } from "date-fns"
@@ -103,9 +103,12 @@ export const Account:React.FC = () => {
         )}
         {active === 1 && (
           <div className={style.posts__list}>
-            {posts?.map((post: postType) => (
+            {posts.length > 0 ? posts?.map((post: postType) => (
               <UserPostItem key={post._id} post={post}/>
-            ))}
+            )): <div className={style.noPosts}>
+                  <p>No posts yet</p>
+                  <Link className={style.addPost} to={ADDPOST_ROUTE}>Add new post</Link>
+                </div>}
           </div>
         )}
           <div className={style.btn__wrapper}>

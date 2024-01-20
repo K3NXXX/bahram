@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import style from "./FullPost.module.scss"
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from "../../utils/axios"
 import { postType } from '../../redux/slices/posts/types'
 import { IoMdHeartEmpty } from "react-icons/io";
@@ -19,7 +19,8 @@ import { commentType, createCommentData } from '../../redux/slices/comments/type
 import { createComment, getPostComments } from '../../redux/slices/comments/commentsSlice'
 import { Link as ScrollLink} from 'react-scroll';
 import { toast } from 'react-toastify'
-import { likePost } from '../../redux/slices/posts/postsSlice'
+import { likePost, removePost } from '../../redux/slices/posts/postsSlice'
+import { HOME_ROUTE } from '../../utils/consts'
 
 
 export const FullPost:React.FC = () => {
@@ -30,7 +31,8 @@ export const FullPost:React.FC = () => {
   const [post, setPost] = useState<postType | null>(null)
   const [like, setLike] = useState(false)
   const {id} = useParams<{ id: string }>();
-  console.log(comments)
+  const user = useSelector((state:RootState) => state.authSlice.user)
+  const navigate= useNavigate()
   const onSubmit = (data: createCommentData) => {
     const formData = {
       id: id!,
@@ -61,6 +63,16 @@ export const FullPost:React.FC = () => {
     <div className={style.root}>
         <p className={style.title}>{post.title}</p>
         <p className={style.author}><span>BY</span> {post.username}</p>
+        {user?._id === post.author && (
+          <div className={style.buttons}>
+            <button className={style.edit}>Edit Post</button>
+            <button onClick={() => {
+              dispatch(removePost(id))
+              navigate(HOME_ROUTE)
+              toast.success("Post deleted successfully")
+              }} className={style.delete}>Delete Post</button>
+          </div>
+        )}
         <div className={style.content}>
             <div className={style.image__wrapper}>
                 <div className={style.social}>

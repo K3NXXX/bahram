@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "../../../utils/axios"
 import { RootState } from "../../store"
+import { postType } from "./types"
 
 export const getPosts = createAsyncThunk('posts/getPosts', async() => {
     const {data} = await axios.get('/posts')
@@ -17,10 +18,16 @@ export const likePost = createAsyncThunk('posts/likePost', async (postId: string
     return data;
 });
 
-  export const getUserPosts = createAsyncThunk('posts/getUserPosts', async () => {
+export const getUserPosts = createAsyncThunk('posts/getUserPosts', async () => {
     const { data } = await axios.get(`/posts/user/me`);
     return data;
 });
+
+export const removePost = createAsyncThunk('posts/removePost', async(id: string| undefined) => {
+    //@ts-ignore
+    const {data} = await axios.delete(`/posts/${id}`, id)
+    return data
+})
 
 
 const initialState = {
@@ -85,6 +92,17 @@ const postsSlice = createSlice({
             state.posts.items = action.payload
         })
         builder.addCase(createPost.rejected, (state) => {
+            state.posts.status = 'error'
+        })
+        //removePost 
+        builder.addCase(removePost.pending, (state) => {
+            state.posts.status = 'loading'
+        })
+        builder.addCase(removePost.fulfilled, (state,action) => {
+            state.posts.status = 'loaded'
+            state.posts.items = state.posts.items.filter((post:postType) => post._id !== action.payload._id)
+        })
+        builder.addCase(removePost.rejected, (state) => {
             state.posts.status = 'error'
         })
         //getUserPosts

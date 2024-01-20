@@ -22,4 +22,5 @@ export type userType = {
     createdAt : string,
     posts: string[],
     avatar: string
+    _id: string
 }
