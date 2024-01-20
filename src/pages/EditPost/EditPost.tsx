@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
-import { createPost } from '../../redux/slices/posts/postsSlice';
-import { useNavigate } from 'react-router-dom';
+import { updatePost } from '../../redux/slices/posts/postsSlice';
+import { useNavigate, useParams } from 'react-router-dom';
 import { HOME_ROUTE } from '../../utils/consts';
 import style from './EditPost.module.scss';
 import img1 from '../../assets/images/addPost/img1.jpg';
@@ -10,6 +10,8 @@ import img2 from '../../assets/images/addPost/img2.jpg';
 import img3 from '../../assets/images/addPost/img3.jpg';
 import img4 from '../../assets/images/addPost/img4.jpg';
 import { toast } from 'react-toastify';
+import axios from 'axios';
+import { postType } from '../../redux/slices/posts/types';
 
 
 export const EditPost: React.FC = () => {
@@ -18,29 +20,48 @@ export const EditPost: React.FC = () => {
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [type, setType] = useState('')
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [oldImage, setOldImage] = useState<File | null>(null);
+  const [newImage, setNewImage] = useState<File | null>(null);
+  const {id} = useParams()
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const {data} = await axios.get(`/posts/${id}`);
+        console.log(data)
+        setTitle(data.title)
+        setTitle(data.text)
+        setOldImage(data.imageUrl)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    fetchPost();
+  }, [id]);
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
   
     try {
-      const formData = new FormData();
-      formData.append('title', title);
-      formData.append('text', text);
-      formData.append('type', type);
-  
-      if (selectedFile !== null) {
-        if (selectedFile.type.startsWith('image/')) {
+      const updatedPost = new FormData();
+      updatedPost.append('title', title);
+      updatedPost.append('text', text);
+      updatedPost.append('type', type);
+      if (id) {
+          updatedPost.append('id', id);
+      }
+      if (newImage !== null) {
+        if (newImage.type.startsWith('image/')) {
           const reader = new FileReader();
           reader.onload = (event) => {
             if (event.target) {
               const img = new Image();
               img.src = event.target.result as string;
-  
               img.onload = () => {
                 if (img.width >= 200) {
-                  formData.append('image', selectedFile);
-                  dispatch(createPost(formData));
-                  toast.success("Post added successfully")
+                  updatedPost.append('image', newImage);
+                  dispatch(updatePost(updatedPost));
+                  toast.success("Post edited successfully")
                   navigate(HOME_ROUTE);
                 } else {
                   toast.error("The uploaded image must have a minimum width of 200 pixels.");
@@ -48,7 +69,7 @@ export const EditPost: React.FC = () => {
               };
             }
           };
-          reader.readAsDataURL(selectedFile);
+          reader.readAsDataURL(newImage);
         } else {
           toast.error("Please select a valid image file.");
         }
@@ -67,7 +88,7 @@ export const EditPost: React.FC = () => {
   const handleClearData = () => {
         setTitle('')
         setText('')
-        setSelectedFile(null)
+        setNewImage(null)
   }
 
   return (
@@ -99,14 +120,17 @@ export const EditPost: React.FC = () => {
           <div className={style.file_upload_wrapper} data-text="Upload post image!">
           <input
             required
-            onChange={(e) => setSelectedFile(e.target.files ? e.target.files[0] : null)}
+            onChange={(e) => {
+                setNewImage(e.target.files ? e.target.files[0] : null)
+                setOldImage(null)
+            }}
             name="file-upload-field"
             type="file"
             className={style.file_upload_field}
           />
           </div>
           <div className={style.buttons}>
-            <button className={style.addPost} type="submit">Add post</button>
+            <button className={style.addPost} type="submit">Edit post</button>
             <button onClick={handleClearData} type='reset' className={style.clear}>Clear</button>
 
           </div>

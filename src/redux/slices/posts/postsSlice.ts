@@ -29,6 +29,12 @@ export const removePost = createAsyncThunk('posts/removePost', async(id: string|
     return data
 })
 
+export const updatePost = createAsyncThunk('posts/updatePost', async(updatedPost:FormData) => {
+    //@ts-ignore
+    const {data} = await axios.put(`/posts/${updatedPost.id}`, updatedPost)
+    return data
+})
+
 
 const initialState = {
     posts: {
@@ -83,6 +89,7 @@ const postsSlice = createSlice({
             state.popularPosts.items = []
             state.posts.status = 'error'
         })
+        
         //createPost
         builder.addCase(createPost.pending, (state) => {
             state.posts.status = 'loading'
@@ -94,6 +101,7 @@ const postsSlice = createSlice({
         builder.addCase(createPost.rejected, (state) => {
             state.posts.status = 'error'
         })
+
         //removePost 
         builder.addCase(removePost.pending, (state) => {
             state.posts.status = 'loading'
@@ -105,6 +113,20 @@ const postsSlice = createSlice({
         builder.addCase(removePost.rejected, (state) => {
             state.posts.status = 'error'
         })
+         //updatePost 
+         builder.addCase(updatePost.pending, (state) => {
+            state.posts.status = 'loading'
+        })
+        builder.addCase(updatePost.fulfilled, (state,action) => {
+            state.posts.status = 'loaded'
+            const index = state.posts.items.findIndex((post:postType) => post._id === action.payload._id)
+            //@ts-ignore
+            state.posts.items[index] = action.payload   
+        })
+        builder.addCase(updatePost.rejected, (state) => {
+            state.posts.status = 'error'
+        })
+
         //getUserPosts
         builder.addCase(getUserPosts.pending, (state) => {
             state.posts.status = 'loading'

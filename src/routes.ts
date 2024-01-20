@@ -33,7 +33,7 @@ export const routes = [
         Component: AddPost
     },
     {
-        path: EDITPOST_ROUTE,
+        path: EDITPOST_ROUTE + "/:id",
         Component: EditPost
     },
     {

@@ -10,7 +10,5 @@ export type postType = {
     viewsCount: number
 }
 
-type authorType = {
-    username: string
-}
+
 

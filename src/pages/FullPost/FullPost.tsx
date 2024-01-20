@@ -65,7 +65,7 @@ export const FullPost:React.FC = () => {
         <p className={style.author}><span>BY</span> {post.username}</p>
         {user?._id === post.author && (
           <div className={style.buttons}>
-            <Link to={EDITPOST_ROUTE} className={style.edit}>Edit Post</Link>
+            <Link to={EDITPOST_ROUTE + `/${id}`} className={style.edit}>Edit Post</Link>
             <button onClick={() => {
               dispatch(removePost(id))
               navigate(HOME_ROUTE)
