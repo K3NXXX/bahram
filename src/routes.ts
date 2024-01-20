@@ -1,6 +1,6 @@
 import { Home } from "./pages/Home/Home";
 import { Auth } from "./pages/Auth/Auth";
-import { ACCOUNT_ROUTE, ADDPOST_ROUTE, ESSENTIALS_ROUTE, FREELANCE_ROUTE, FULLPOST_ROUTE, HOME_ROUTE, HOW_NOT_TO_ROUTE, POPULAR_ROUTE, POSTS_CATEGORIES_ROUTE, REGISTER_ROUTE, SEO_ROUTE, TYPOGRAPHY_ROUTE, UI_DESIGN_ROUTE, UX_DESIGN_ROUTE } from "./utils/consts";
+import { ACCOUNT_ROUTE, ADDPOST_ROUTE, EDITPOST_ROUTE, ESSENTIALS_ROUTE, FREELANCE_ROUTE, FULLPOST_ROUTE, HOME_ROUTE, HOW_NOT_TO_ROUTE, POPULAR_ROUTE, POSTS_CATEGORIES_ROUTE, REGISTER_ROUTE, SEO_ROUTE, TYPOGRAPHY_ROUTE, UI_DESIGN_ROUTE, UX_DESIGN_ROUTE } from "./utils/consts";
 import { Account } from "./pages/Account/Account";
 import { AddPost } from "./pages/AddPost/AddPost";
 import { EssentialsPosts } from "./pages/Posts/EssentialsPosts";
@@ -13,6 +13,7 @@ import { UiDesignPosts } from "./pages/Posts/UiDesignPosts";
 import { UxDesignPosts } from "./pages/Posts/UxDesignPosts";
 import { PostCategories } from "./pages/PostCategories/PostCategories";
 import { PopularPosts } from "./pages/Posts/PopularPosts";
+import { EditPost } from "./pages/EditPost/EditPost";
 
 export const routes = [
     {
@@ -30,6 +31,10 @@ export const routes = [
     {
         path: ADDPOST_ROUTE,
         Component: AddPost
+    },
+    {
+        path: EDITPOST_ROUTE,
+        Component: EditPost
     },
     {
         path: FREELANCE_ROUTE,

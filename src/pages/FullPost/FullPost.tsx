@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import style from "./FullPost.module.scss"
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from "../../utils/axios"
 import { postType } from '../../redux/slices/posts/types'
 import { IoMdHeartEmpty } from "react-icons/io";
@@ -20,7 +20,7 @@ import { createComment, getPostComments } from '../../redux/slices/comments/comm
 import { Link as ScrollLink} from 'react-scroll';
 import { toast } from 'react-toastify'
 import { likePost, removePost } from '../../redux/slices/posts/postsSlice'
-import { HOME_ROUTE } from '../../utils/consts'
+import { EDITPOST_ROUTE, HOME_ROUTE } from '../../utils/consts'
 
 
 export const FullPost:React.FC = () => {
@@ -65,7 +65,7 @@ export const FullPost:React.FC = () => {
         <p className={style.author}><span>BY</span> {post.username}</p>
         {user?._id === post.author && (
           <div className={style.buttons}>
-            <button className={style.edit}>Edit Post</button>
+            <Link to={EDITPOST_ROUTE} className={style.edit}>Edit Post</Link>
             <button onClick={() => {
               dispatch(removePost(id))
               navigate(HOME_ROUTE)

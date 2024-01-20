@@ -4,7 +4,7 @@ import { AppDispatch } from '../../redux/store';
 import { createPost } from '../../redux/slices/posts/postsSlice';
 import { useNavigate } from 'react-router-dom';
 import { HOME_ROUTE } from '../../utils/consts';
-import style from './AddPost.module.scss';
+import style from './EditPost.module.scss';
 import img1 from '../../assets/images/addPost/img1.jpg';
 import img2 from '../../assets/images/addPost/img2.jpg';
 import img3 from '../../assets/images/addPost/img3.jpg';
@@ -12,7 +12,7 @@ import img4 from '../../assets/images/addPost/img4.jpg';
 import { toast } from 'react-toastify';
 
 
-export const AddPost: React.FC = () => {
+export const EditPost: React.FC = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch<AppDispatch>();
   const [title, setTitle] = useState('');
@@ -73,7 +73,7 @@ export const AddPost: React.FC = () => {
   return (
     <div className={style.bg}>
       <div className={style.root}>
-        <h5 className={style.root__title}>Adding Post</h5>
+        <h5 className={style.root__title}>Editing Post</h5>
       
         <form onSubmit={submitHandler}>
           <textarea required value={title}
