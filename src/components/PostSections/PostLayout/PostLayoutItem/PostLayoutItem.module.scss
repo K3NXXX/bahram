@@ -3,7 +3,7 @@
     padding: 20px 21px;
     border-radius: 8px;
     background: #FFF;
-    height: 158px;
+    min-height: 158px;
 
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
     @media (max-width:464px) {
@@ -28,8 +28,6 @@
         letter-spacing: -0.112px;
         max-width: 236px;
         word-wrap: break-word;
-        @media (max-width:464px) {
-            font-size: 14px;
-        }
+      
     }
 }

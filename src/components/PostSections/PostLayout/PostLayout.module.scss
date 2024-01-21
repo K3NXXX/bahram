@@ -78,9 +78,7 @@
                     line-height: 30px; /* 362.5% */
 
                 }
-                @media (max-width:450px) {
-                    font-size: 16px;
-                }
+              
             }
             .post__descr {
                 color: #FFF;
@@ -100,6 +98,9 @@
             display: grid;
             grid-template-columns: repeat(2,1fr);
             gap: 20px;
+            @media (max-width:615px) {
+                grid-template-columns: 300px;
+            }
             
         }
         
