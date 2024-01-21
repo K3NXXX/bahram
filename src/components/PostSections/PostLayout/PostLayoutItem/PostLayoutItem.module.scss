@@ -27,6 +27,7 @@
         line-height: 30px; /* 166.667% */
         letter-spacing: -0.112px;
         max-width: 236px;
+        word-wrap: break-word;
         @media (max-width:464px) {
             font-size: 14px;
         }

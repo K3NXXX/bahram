@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import style from "./Header.module.scss"
 import { Link } from 'react-router-dom'
 import { ACCOUNT_ROUTE, ADDPOST_ROUTE, HOME_ROUTE, REGISTER_ROUTE } from '../../../utils/consts'
@@ -8,9 +8,7 @@ import { IoClose, IoSearchSharp } from 'react-icons/io5'
 import { useSelector } from 'react-redux'
 import { checkIsAuth } from '../../../redux/slices/auth/authSlice'
 import { FiUser, FiUserCheck } from 'react-icons/fi'
-import { IoSunny } from "react-icons/io5";
 import { AiOutlinePlusSquare } from 'react-icons/ai'
-import { FaMoon } from "react-icons/fa";
 import { SearchItem } from '../../SearchItem/SearchItem'
 import { postType } from '../../../redux/slices/posts/types'
 import { RootState } from '../../../redux/store'
@@ -18,7 +16,6 @@ export const Header:React.FC = () => {
     const IsAuth = useSelector(checkIsAuth)
     const [search, setSearch] = useState<boolean>(false)
     const [value, setValue] = useState<string>("")
-    const [theme, setTheme] = useState(false)
     const posts = useSelector((state:RootState) => state.postsSlice.posts.items)
     const filteredPosts = posts.filter((post:postType) => {
         return post.title.toLowerCase().includes(value.toLowerCase())
@@ -28,13 +25,6 @@ export const Header:React.FC = () => {
     <header className={style.header}>
         <div className={style.header__top}>
             <div className={style.header__top_left}>
-                <div onClick={() => setTheme(!theme)} className={style.theme}>
-                    <IconContext.Provider value={{color: 'black', size: '30px'}}>
-                        {theme ? (
-                            <IoSunny  />
-                        ): (<FaMoon/>)}
-                    </IconContext.Provider>
-                </div>
                 {IsAuth ? (
                     <Link to={ADDPOST_ROUTE}>
                         <IconContext.Provider value={{size:'30px', color: "black"}}>

@@ -20,7 +20,6 @@ export const EditPost: React.FC = () => {
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [type, setType] = useState('')
-  const [oldImage, setOldImage] = useState<File | null>(null);
   const [newImage, setNewImage] = useState<File | null>(null);
   const {id} = useParams()
 
@@ -31,7 +30,6 @@ export const EditPost: React.FC = () => {
         console.log(data)
         setTitle(data.title)
         setTitle(data.text)
-        setOldImage(data.imageUrl)
       } catch (error) {
         console.log(error);
       }
@@ -122,7 +120,6 @@ export const EditPost: React.FC = () => {
             required
             onChange={(e) => {
                 setNewImage(e.target.files ? e.target.files[0] : null)
-                setOldImage(null)
             }}
             name="file-upload-field"
             type="file"
@@ -145,4 +142,3 @@ export const EditPost: React.FC = () => {
     </div>
   );
 };
-

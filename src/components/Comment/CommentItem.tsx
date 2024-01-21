@@ -14,8 +14,6 @@ type CommentItemType = {
 }
 
 export const CommentItem:React.FC<CommentItemType> = ({comment}) => {
-    const dispatch = useDispatch<AppDispatch>()
-    const {id} = useParams()
     const formattedDate = format(new Date(comment.createdAt), "MMMM dd, yyyy 'at' h:mm a");
   return (
     <div className={style.root}>
@@ -24,9 +22,13 @@ export const CommentItem:React.FC<CommentItemType> = ({comment}) => {
         </div>
         <div className={style.content}>
             <div className={style.top}>
-                <p className={style.username}>{comment.username}</p>
-                <p className={style.date}>{formattedDate}</p>
-                <IoMdClose onClick={() => dispatch(deleteComment(id))} className={style.deletePost}  />
+                <div className={style.image__wrapper__phone}>
+                    <img className={style.avatar} src={`http://localhost:7777/${comment.avatar}`} alt="avatar" />
+                </div>
+                <div className={style.top__content}>
+                    <p className={style.username}>{comment.username}</p>
+                    <p className={style.date}>{formattedDate}</p>
+                </div>
             </div>
             <div className={style.bottom}>
                 <p className={style.text}>{comment.comment}

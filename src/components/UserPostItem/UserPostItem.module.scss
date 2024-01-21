@@ -5,6 +5,13 @@
     border-radius: 10px;
     border: 2px solid #3e3180;
     cursor: pointer;
+    @media (max-width:1033px) {
+        width: 400px;
+        margin-top: 20px;
+    }
+    @media (max-width:800px) {
+        width: 300px;
+    }
   
     .top {
         display: flex;

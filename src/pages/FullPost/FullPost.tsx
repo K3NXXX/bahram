@@ -3,9 +3,7 @@ import style from "./FullPost.module.scss"
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from "../../utils/axios"
 import { postType } from '../../redux/slices/posts/types'
-import { IoMdHeartEmpty } from "react-icons/io";
 import { IconContext } from 'react-icons'
-import { IoMdHeart } from "react-icons/io";
 import { MdRemoveRedEye } from "react-icons/md";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -19,7 +17,7 @@ import { commentType, createCommentData } from '../../redux/slices/comments/type
 import { createComment, getPostComments } from '../../redux/slices/comments/commentsSlice'
 import { Link as ScrollLink} from 'react-scroll';
 import { toast } from 'react-toastify'
-import { likePost, removePost } from '../../redux/slices/posts/postsSlice'
+import { removePost } from '../../redux/slices/posts/postsSlice'
 import { EDITPOST_ROUTE, HOME_ROUTE } from '../../utils/consts'
 
 
@@ -27,9 +25,7 @@ export const FullPost:React.FC = () => {
   const dispatch = useDispatch<AppDispatch>()
   const {register, reset, handleSubmit} = useForm<createCommentData>({mode: 'onChange'})
   const comments = useSelector((state:RootState) => state.commentsSlice.comments)
-  const likes = useSelector((state:RootState) => state.postsSlice.likes.items)
   const [post, setPost] = useState<postType | null>(null)
-  const [like, setLike] = useState(false)
   const {id} = useParams<{ id: string }>();
   const user = useSelector((state:RootState) => state.authSlice.user)
   const navigate= useNavigate()
@@ -87,21 +83,6 @@ export const FullPost:React.FC = () => {
                   <img src={`http://localhost:7777/${post.imageUrl}`} alt="post" />
                 ): null}
                 <div className={style.statistic}>
-                    <div onClick={() => { 
-                      setLike(!like)
-                      dispatch(likePost(id))
-                      }} className={style.likes}>
-                      {like ? (
-                         <IconContext.Provider value={{size: '30px', color: 'red'}}>
-                            <IoMdHeart />
-                         </IconContext.Provider>
-                      ): (
-                        <IconContext.Provider value={{size: '30px'}}>
-                          <IoMdHeartEmpty />
-                        </IconContext.Provider>
-                      )}
-                      <p className={style.count}>{likes}</p>
-                    </div>
                     <div  className={style.views}>
                       <IconContext.Provider value={{size: '30px'}}>
                         <MdRemoveRedEye />

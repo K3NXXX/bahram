@@ -18,7 +18,7 @@ export const Account:React.FC = () => {
     const [avatar, setAvatar] = useState<File | null>(null)
     const accountList = ["User's Data", "My posts"]
     const user = useSelector((state:RootState) => state.authSlice.user)
-    const formattedDate = user ? format(new Date(user.createdAt), "MMMM dd, yyyy 'at' h:mm a") : '';
+    const formattedDate = user ? format(new Date(user.createdAt), "MMMM dd, yyyy") : '';
   
     const fetchPosts = async() => {
       try {
@@ -59,6 +59,9 @@ export const Account:React.FC = () => {
               className={index === active ? style.active : ''}
               key={index}>{item}</li>
             ))}
+            <div className={style.btn__wrapper__phone}>
+              <button className={style.logOut} onClick={logoutClick}>Log out</button>
+            </div>
           </ul>
         </div>
         {active === 0 && (

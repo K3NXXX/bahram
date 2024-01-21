@@ -17,6 +17,16 @@
         display: grid;
         grid-template-columns: 250px 1fr 130px;
         gap: 0 50px;
+        @media (max-width:1200px) {
+            grid-template-columns: 250px 1fr;
+        }
+        @media (max-width:1000px) {
+            grid-template-columns: 400px;
+            justify-content: center;
+        }
+        @media (max-width:800px) {
+            grid-template-columns: 300px;
+        }
         .posts__list {
             display: flex;
             flex-direction: column;
@@ -54,6 +64,13 @@
                 border: 3px solid #3e3180;
                 min-height: 500px;
                 border-radius: 10px;
+                @media (max-width:1000px) {
+                    min-height: auto;
+                    align-items: center;
+                    border: none;
+              
+                }
+                
                 li {
                     color: var(--3, #212121);
                     font-family: "Open Sans";
@@ -65,10 +82,37 @@
                     user-select: none;
                     border-left: 3px solid transparent;
                     padding-left: 10px;
+                    width: 130px;
+                    text-align: center;
+                    @media (max-width:1000px) {
+                        margin-bottom: 10px;
+                    }
                 }
                 .active {
                     border-left: 3px solid #3e3180;
 
+                }
+                .btn__wrapper__phone {
+                    display: none;
+                    @media (max-width:1200px) {
+                        display: flex;
+                    }
+                    .logOut {
+                        color: #FFF;
+                        font-family: "Open Sans";
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        letter-spacing: -0.375px;
+                        border-radius: 10px;
+                        background: #9283E0;
+                        padding: 12px 19px;
+                        transition: 0.3s ease all;
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                    }
                 }
             }
         }
@@ -77,14 +121,19 @@
     .right {
         border-radius: 15px;
         padding: 15px;
-        display: grid;
-        grid-template-columns: 1fr 200px;
       
         .content__user {
             .userInfo {
                 display: flex;
                 flex-direction: column;
                 gap: 15px 0;
+                @media (max-width:1000px) {
+                    align-items: center;
+                }
+                @media (max-width:500px) {
+                    font-size: 18px;
+                }
+
                 .username {
                     display: flex;
                     gap: 0 10px;
@@ -111,6 +160,10 @@
                     display: flex;
                     gap: 0px 30px;
                     align-items: center;
+                    @media (max-width:800px) {
+                        flex-direction: column;
+                        gap: 20px 0;
+                    }
                     .avatar__content {
                         position: relative;
                 
@@ -179,20 +232,25 @@
             }
         }
     }
-    .logOut {
-        color: #FFF;
-        font-family: "Open Sans";
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-        letter-spacing: -0.375px;
-        border-radius: 10px;
-        background: #9283E0;
-        padding: 12px 19px;
-        transition: 0.3s ease all;
-        &:hover {
-            opacity: 0.7;
+    .btn__wrapper {
+        @media (max-width:1200px) {
+            display: none;
         }
+            .logOut {
+                color: #FFF;
+                font-family: "Open Sans";
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                letter-spacing: -0.375px;
+                border-radius: 10px;
+                background: #9283E0;
+                padding: 12px 19px;
+                transition: 0.3s ease all;
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
     }
 }

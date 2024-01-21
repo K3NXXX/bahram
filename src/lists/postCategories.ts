@@ -62,7 +62,7 @@ export const postCategories:postCategoriesType[] = [
     {
         id: 7,
         title: "Essentials",
-        description: "Diffent interesting posts",
+        description: "Diffent interesting posts about everything.",
         image: essentials,
         route: ESSENTIALS_ROUTE
     },

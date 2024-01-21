@@ -14,6 +14,9 @@
       letter-spacing: -0.3px;
       margin-bottom: 30px;
       text-align: center;
+      @media (max-width:630px) {
+        font-size: 32px;
+      }
     }
     
     
@@ -78,6 +81,14 @@
               width: 300px;
             }
 
+        }
+        select {
+          @media (max-width:630px) {
+            width: 400px;
+          }
+          @media (max-width:450px) {
+            width: 300px;
+          }
         }
         .file_upload_wrapper {
             $defaultColor: #4daf7c;
