@@ -37,7 +37,7 @@ const App: React.FC = () => {
             <main className={style.main}>
                 <Routes>
                     {routes.map(({ path, Component }) => (
-                        <Route path={path} element={<Component />} />
+                        <Route key={path} path={path} element={<Component />} />
                     ))}
                 </Routes>
             </main>

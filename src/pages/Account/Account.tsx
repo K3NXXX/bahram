@@ -52,6 +52,7 @@ export const Account: React.FC = () => {
     const logoutClick = (): void => {
         dispatch(logout());
         navigate(HOME_ROUTE);
+        window.localStorage.removeItem('token')
     };
 
     return (

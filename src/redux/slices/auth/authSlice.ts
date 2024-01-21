@@ -119,9 +119,8 @@ const authSlice = createSlice({
         });
         builder.addCase(getMe.fulfilled, (state, action) => {
             state.isLoading = false;
-            state.status = action.payload.message;
-            state.user = action.payload.user;
-            state.token = action.payload.token;
+            state.user = action.payload?.user;
+            state.token = action.payload?.token;
         });
         builder.addCase(getMe.rejected, (state) => {
             state.isLoading = false;
