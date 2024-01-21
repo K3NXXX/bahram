@@ -3,14 +3,12 @@
     padding-bottom: 50px;
     cursor: pointer;
     border-bottom: 1px solid #c7c7c7;
-    
 }
 .content {
     img {
         margin-bottom: 20px;
         max-height: 400px;
         max-width: 100%;
-       
     }
     .author {
         color: #000;
@@ -20,9 +18,9 @@
         font-weight: 400;
         letter-spacing: -0.1px;
         text-transform: uppercase;
-        
+
         span {
-            color: #9B9B9B;
+            color: #9b9b9b;
             font-family: Open Sans;
             font-size: 16px;
             font-style: normal;
@@ -41,14 +39,14 @@
         line-height: 61px; /* 127.083% */
         letter-spacing: -0.3px;
         max-width: 1000px;
-        @media (max-width:610px) {
+        @media (max-width: 610px) {
             font-size: 30px;
         }
-        @media (max-width:500px) {
+        @media (max-width: 500px) {
             font-size: 24px;
             line-height: 40px;
         }
-        @media (max-width:380px) {
+        @media (max-width: 380px) {
             font-size: 20px;
         }
     }

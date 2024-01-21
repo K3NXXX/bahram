@@ -11,13 +11,13 @@
     margin: 0 auto;
     padding: 392px 15px 0 15px;
     user-select: none;
-    @media (max-width:600px) {
+    @media (max-width: 600px) {
         padding: 250px 15px 0 15px;
         text-align: center;
     }
 
     .author {
-        color: #FFF;
+        color: #fff;
         font-family: Open Sans;
         font-size: 16px;
         font-style: normal;
@@ -26,15 +26,15 @@
         letter-spacing: -0.1px;
         margin-bottom: 10px;
         max-width: 776px;
-        @media (max-width:400px) {
+        @media (max-width: 400px) {
             font-size: 14px;
         }
-        @media (max-width:340px) {
+        @media (max-width: 340px) {
             font-size: 12px;
         }
     }
     .title {
-        color: #FFF;
+        color: #fff;
         font-family: Open Sans;
         font-size: 36px;
         font-style: normal;
@@ -43,15 +43,15 @@
         letter-spacing: -0.225px;
         margin-bottom: 23px;
         max-width: 766px;
-        @media (max-width:700px) {
+        @media (max-width: 700px) {
             font-size: 27px;
         }
-        @media (max-width:340px) {
+        @media (max-width: 340px) {
             font-size: 25px;
         }
     }
     .text {
-        color: #FFF;
+        color: #fff;
         font-family: Open Sans;
         font-size: 18px;
         font-style: normal;

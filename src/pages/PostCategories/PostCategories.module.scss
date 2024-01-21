@@ -12,7 +12,7 @@
         line-height: 58px; /* 161.111% */
         letter-spacing: -0.225px;
         margin-bottom: 30px;
-        @media (max-width:440px) {
+        @media (max-width: 440px) {
             font-size: 30px;
         }
     }
@@ -26,7 +26,7 @@
         letter-spacing: -0.112px;
         max-width: 676px;
         margin-bottom: 100px;
-        @media (max-width:440px) {
+        @media (max-width: 440px) {
             font-size: 16px;
             margin-bottom: 50px;
         }
@@ -36,10 +36,9 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 70px 30px;
         justify-items: center;
-        @media (max-width:1080px) {
+        @media (max-width: 1080px) {
             grid-template-columns: repeat(1, 600px);
             justify-content: center;
         }
     }
-    
 }

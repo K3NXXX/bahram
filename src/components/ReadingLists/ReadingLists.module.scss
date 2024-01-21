@@ -16,7 +16,7 @@
             margin-bottom: 30px;
         }
         a {
-            color: #9B9B9B;
+            color: #9b9b9b;
             font-family: Open Sans;
             font-size: 16px;
             font-style: normal;
@@ -26,27 +26,27 @@
             background-color: transparent;
         }
     }
-   
-   .content {
-    display: grid;
-    grid-template-columns: repeat(5, 213px);
-    gap: 0 20px;
-    justify-content: center;
-    @media (max-width:1170px) {
-        grid-template-columns: repeat(4, 213px);
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(5, 213px);
+        gap: 0 50px;
         justify-content: center;
+        @media (max-width: 1300px) {
+            grid-template-columns: repeat(4, 213px);
+            justify-content: center;
+        }
+        @media (max-width: 1030px) {
+            grid-template-columns: repeat(3, 213px);
+            justify-content: center;
+        }
+        @media (max-width: 767px) {
+            grid-template-columns: repeat(2, 213px);
+            justify-content: center;
+        }
+        @media (max-width: 515px) {
+            grid-template-columns: repeat(1, 213px);
+            justify-content: center;
+        }
     }
-    @media (max-width:948px) {
-        grid-template-columns: repeat(3, 213px);
-        justify-content: center;
-    }
-    @media (max-width:726px) {
-        grid-template-columns: repeat(2, 213px);
-        justify-content: center;
-    }
-    @media (max-width:484px) {
-        grid-template-columns: repeat(1, 213px);
-        justify-content: center;
-    }
-   }
 }
