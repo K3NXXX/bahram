@@ -7,6 +7,7 @@ import { fetchLogin, fetchRegister } from "../../redux/slices/auth/authSlice";
 import { loginData, registerData } from "../../redux/slices/auth/types";
 import "react-toastify/dist/ReactToastify.css";
 import style from "./Auth.module.scss";
+import { HOME_ROUTE } from "../../utils/consts";
 
 export const Auth: React.FC = () => {
     const registrationForm = useForm<registerData>({ mode: "onChange" });
@@ -27,13 +28,13 @@ export const Auth: React.FC = () => {
     ) => {
         dispatch(fetchRegister(data));
         toast.success("Registration was successful");
-        navigate("/bahram");
+        navigate(HOME_ROUTE);
     };
 
     const loginSubmitHandler: SubmitHandler<loginData> = (data: loginData) => {
         dispatch(fetchLogin(data));
         toast.success("Authorization was successful");
-        navigate("/bahram");
+        navigate(HOME_ROUTE);
     };
 
     return (
