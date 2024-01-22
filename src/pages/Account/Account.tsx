@@ -157,7 +157,7 @@ export const Account: React.FC = () => {
                 )}
                 {active === 1 && (
                     <div className={style.posts__list}>
-                        {posts.length > 0 ? (
+                        {Array.isArray(posts) ? posts.length > 0 ? (
                             posts?.map((post: postType) => (
                                 <UserPostItem key={post._id} post={post} />
                             ))
@@ -171,7 +171,7 @@ export const Account: React.FC = () => {
                                     Add new post
                                 </Link>
                             </div>
-                        )}
+                        ) : []}
                     </div>
                 )}
                 <div className={style.btn__wrapper}>

@@ -25,13 +25,13 @@ export const HomeHeader: React.FC = () => {
     const posts = useSelector(
         (state: RootState) => state.postsSlice.posts.items
     );
-    if (!posts) {
-        return null;
-      }
+   
       
-    const filteredPosts = posts?.filter((post: postType) => {
-        return post.title.toLowerCase().includes(value.toLowerCase());
-    });
+    const filteredPosts = Array.isArray(posts)
+    ? posts.filter((post: postType) => {
+          return post.title.toLowerCase().includes(value.toLowerCase());
+      })
+    : [];
     return (
         <header className={style.header}>
             <div className={style.header__top}>
