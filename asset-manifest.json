@@ -1,23 +1,31 @@
 {
   "files": {
-    "main.css": "/bahram/static/css/main.137a41e7.css",
-    "main.js": "/bahram/static/js/main.e6808e5f.js",
+    "main.css": "/bahram/static/css/main.b7f62048.css",
+    "main.js": "/bahram/static/js/main.a7efeb21.js",
     "static/media/intro-img.png": "/bahram/static/media/intro-img.4bd5a06784b1c0c3e1ea.png",
     "static/media/img3.jpg": "/bahram/static/media/img3.8230d2765fdb166c4d2f.jpg",
     "static/media/img1.jpg": "/bahram/static/media/img1.22b65385810b32527f87.jpg",
     "static/media/img2.jpg": "/bahram/static/media/img2.c8022bf883b159ed13aa.jpg",
     "static/media/img4.jpg": "/bahram/static/media/img4.c9853f8485de441a1cec.jpg",
     "static/media/bg.jpg": "/bahram/static/media/bg.b7aab8ccdaaf79ae4dc3.jpg",
+    "static/media/popular.png": "/bahram/static/media/popular.e0322d3e7ebce9a151e8.png",
+    "static/media/uxDesign.png": "/bahram/static/media/uxDesign.5a33d4c9dc1f2fcb1577.png",
+    "static/media/freelance.png": "/bahram/static/media/freelance.9bbd291a4b16b0e716b0.png",
     "static/media/img5.jpg": "/bahram/static/media/img5.c4941d33ce2df20f66c1.jpg",
+    "static/media/typography.png": "/bahram/static/media/typography.9f508178845b88790d50.png",
+    "static/media/seo.png": "/bahram/static/media/seo.faba472b5f1d8687c5e6.png",
+    "static/media/howNotTo.png": "/bahram/static/media/howNotTo.c7cde140d1f6214e40c4.png",
+    "static/media/uiDesign.png": "/bahram/static/media/uiDesign.2f495a87ada915ae5c6b.png",
+    "static/media/essentials.png": "/bahram/static/media/essentials.e2ed2074ae3efc2be46b.png",
     "static/media/logo.svg": "/bahram/static/media/logo.5892521b2645f0e9d00442cc76c4f8d0.svg",
     "static/media/footer_logo.svg": "/bahram/static/media/footer_logo.a21b11312cc3eb45785c3e1351625811.svg",
     "static/media/logo-black.svg": "/bahram/static/media/logo-black.5194c22e454ffae72a41ef534bd7445f.svg",
     "index.html": "/bahram/index.html",
-    "main.137a41e7.css.map": "/bahram/static/css/main.137a41e7.css.map",
-    "main.e6808e5f.js.map": "/bahram/static/js/main.e6808e5f.js.map"
+    "main.b7f62048.css.map": "/bahram/static/css/main.b7f62048.css.map",
+    "main.a7efeb21.js.map": "/bahram/static/js/main.a7efeb21.js.map"
   },
   "entrypoints": [
-    "static/css/main.137a41e7.css",
-    "static/js/main.e6808e5f.js"
+    "static/css/main.b7f62048.css",
+    "static/js/main.a7efeb21.js"
   ]
 }
