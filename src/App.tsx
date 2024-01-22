@@ -27,7 +27,7 @@ const App: React.FC = () => {
 
     useEffect(() => {
         const currentPath = location.pathname;
-        setIsHome(currentPath === "/bahram");
+        setIsHome(currentPath === "/bahram/");
         setIsLogin(currentPath === "/bahram/registration");
     }, [location.pathname]);
 
