@@ -17,7 +17,7 @@ export const UxDesignPosts: React.FC = () => {
             <h3 className={style.title}>UX Design</h3>
             <div className={style.content}>
                 {posts.length > 0 ? (
-                    posts.map((post: postType) => (
+                    posts?.map((post: postType) => (
                         <PostItem key={post._id} post={post} />
                     ))
                 ) : (

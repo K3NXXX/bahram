@@ -83,7 +83,9 @@
     .bottom {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        @media (max-width:830px) {
+            align-items: center;
+        }
     }
     .text {
         color: #4a4a4a;

@@ -17,7 +17,7 @@ export const PopularPosts: React.FC = () => {
             <h3 className={style.title}>Popular</h3>
             <div className={style.content}>
                 {posts.length > 0 ? (
-                    posts.map((post: postType) => (
+                    posts?.map((post: postType) => (
                         <PostItem key={post._id} post={post} />
                     ))
                 ) : (

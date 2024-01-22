@@ -17,7 +17,7 @@ export const HowNotToPosts: React.FC = () => {
             <h3 className={style.title}>How not to</h3>
             <div className={style.content}>
                 {posts.length > 0 ? (
-                    posts.map((post: postType) => (
+                    posts?.map((post: postType) => (
                         <PostItem key={post._id} post={post} />
                     ))
                 ) : (

@@ -23,6 +23,7 @@ export const Account: React.FC = () => {
     const [avatar, setAvatar] = useState<File | null>(null);
     const accountList = ["User's Data", "My posts"];
     const user = useSelector((state: RootState) => state.authSlice.user);
+    console.log(posts)
     const formattedDate = user
         ? format(new Date(user.createdAt), "MMMM dd, yyyy")
         : "";

@@ -25,7 +25,11 @@ export const HomeHeader: React.FC = () => {
     const posts = useSelector(
         (state: RootState) => state.postsSlice.posts.items
     );
-    const filteredPosts = posts.filter((post: postType) => {
+    if (!posts) {
+        return null;
+      }
+      
+    const filteredPosts = posts?.filter((post: postType) => {
         return post.title.toLowerCase().includes(value.toLowerCase());
     });
     return (
@@ -100,7 +104,7 @@ export const HomeHeader: React.FC = () => {
             </div>
             {value.length > 0 ? (
                 <div className={style.search__list}>
-                    {filteredPosts.slice(0, 5).map((post: postType) => (
+                    {filteredPosts?.slice(0, 5).map((post: postType) => (
                         <SearchItem key={post._id} post={post} />
                     ))}
                 </div>

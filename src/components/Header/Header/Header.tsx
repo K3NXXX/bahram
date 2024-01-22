@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
     const posts = useSelector(
         (state: RootState) => state.postsSlice.posts.items
     );
-    const filteredPosts = posts.filter((post: postType) => {
+    const filteredPosts = posts?.filter((post: postType) => {
         return post.title.toLowerCase().includes(value.toLowerCase());
     });
 
