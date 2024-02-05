@@ -1,0 +1,26 @@
+.root {
+    max-width: 1202px;
+    padding: 175px 15px 35px 15px;
+    margin: 0 auto;
+    @media (max-width: 484px) {
+        padding: 70px 15px 35px 15px;
+    }
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 400px) {
+        flex-direction: column;
+        gap: 20px 0;
+    }
+    .copyright {
+        color: #9b9b9b;
+        text-align: right;
+        font-family: Open Sans;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}

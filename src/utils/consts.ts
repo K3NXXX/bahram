@@ -1,0 +1,15 @@
+export const HOME_ROUTE = "/bahram/";
+export const REGISTER_ROUTE = "/bahram/registration";
+export const ACCOUNT_ROUTE = "/bahram/account";
+export const ADDPOST_ROUTE = "/bahram/add-post";
+export const EDITPOST_ROUTE = "/bahram/edit-post";
+export const FULLPOST_ROUTE = "/bahram/full-post";
+export const ESSENTIALS_ROUTE = "/bahram/essentials-posts";
+export const UX_DESIGN_ROUTE = "/bahram/ux-design-posts";
+export const UI_DESIGN_ROUTE = "/bahram/ui-design-posts";
+export const SEO_ROUTE = "/bahram/seo-posts";
+export const TYPOGRAPHY_ROUTE = "/bahram/typography-posts";
+export const FREELANCE_ROUTE = "/bahram/freelance-posts";
+export const HOW_NOT_TO_ROUTE = "/bahram/how-not-to-posts";
+export const POPULAR_ROUTE = "/bahram/popular-posts";
+export const POSTS_CATEGORIES_ROUTE = "/bahram/posts-categories";

@@ -1,0 +1,32 @@
+.post__card {
+    cursor: pointer;
+    padding: 20px 21px;
+    border-radius: 8px;
+    background: #fff;
+    min-height: 158px;
+
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+    @media (max-width: 464px) {
+        padding: 10px 10px;
+    }
+    .post__card_type {
+        color: #9b9b9b;
+        font-family: Open Sans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 58px;
+        letter-spacing: -0.1px;
+    }
+    .post__card_title {
+        color: #111210;
+        font-family: Open Sans;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 30px; /* 166.667% */
+        letter-spacing: -0.112px;
+        max-width: 236px;
+        word-wrap: break-word;
+    }
+}

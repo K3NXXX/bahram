@@ -1,0 +1,44 @@
+.root {
+    background-color: white;
+    width: 700px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    .top {
+        display: flex;
+        gap: 0 20px;
+        .type {
+            font-family: "Open Sans";
+            font-weight: 600;
+            font-size: 18px;
+            color: #8721a7;
+            letter-spacing: -0.112px;
+            line-height: 30px;
+            white-space: nowrap;
+            min-width: 105px;
+        }
+        .title {
+            font-family: "Open Sans";
+            font-weight: 600;
+            font-size: 18px;
+            color: #111210;
+            letter-spacing: -0.112px;
+            line-height: 30px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    .text {
+        font-family: "Open Sans";
+        font-weight: 600;
+        font-size: 18px;
+        color: #9e9e9e;
+        letter-spacing: -0.112px;
+        line-height: 30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

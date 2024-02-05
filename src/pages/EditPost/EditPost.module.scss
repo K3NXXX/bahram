@@ -1,0 +1,218 @@
+.root {
+    max-width: 1202px;
+    padding: 0 15px;
+    margin: 0 auto;
+    padding-top: 180px;
+    .root__title {
+        color: #111210;
+        font-family: Open Sans;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 61px;
+        letter-spacing: -0.3px;
+        margin-bottom: 30px;
+        text-align: center;
+        @media (max-width: 630px) {
+            font-size: 32px;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px 0;
+        select {
+            width: 600px;
+            padding: 15px;
+            border-radius: 20px;
+            border: 2px solid #9283e0;
+            color: #000000;
+            font-family: "Open Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 30px;
+            letter-spacing: -0.1px;
+        }
+
+        .title {
+            width: 600px;
+            padding: 15px;
+            border-radius: 20px;
+            border: 2px solid #9283e0;
+            color: #000000;
+            font-family: "Open Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 30px;
+            letter-spacing: -0.1px;
+            @media (max-width: 630px) {
+                width: 400px;
+            }
+            @media (max-width: 450px) {
+                width: 300px;
+            }
+        }
+        .text {
+            width: 600px;
+            padding: 15px;
+            border-radius: 20px;
+            border: 2px solid #9283e0;
+            height: 330px;
+            color: #000000;
+            font-family: "Open Sans";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 30px;
+            letter-spacing: -0.1px;
+            @media (max-width: 630px) {
+                width: 400px;
+            }
+            @media (max-width: 450px) {
+                width: 300px;
+            }
+        }
+        select {
+            @media (max-width: 630px) {
+                width: 400px;
+            }
+            @media (max-width: 450px) {
+                width: 300px;
+            }
+        }
+        .file_upload_wrapper {
+            $defaultColor: #4daf7c;
+            $height: 60px;
+            position: relative;
+            width: 600px;
+            height: $height;
+            @media (max-width: 630px) {
+                width: 400px;
+            }
+            @media (max-width: 450px) {
+                width: 300px;
+            }
+
+            &:after {
+                content: attr(data-text);
+                font-size: 18px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: #ffffff;
+                display: block;
+                width: calc(100% - 40px);
+                pointer-events: none;
+                z-index: 20;
+                height: $height - 20px;
+                line-height: $height - 20px;
+                color: #999;
+                border-radius: 5px 10px 10px 5px;
+                font-weight: 300;
+                height: 100%;
+                padding: 10px;
+                border: #4daf7c 2px solid;
+                transition: 0.3 ease;
+            }
+
+            &:before {
+                content: "Upload";
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: inline-block;
+                height: 60px;
+                background: $defaultColor;
+                color: #fff;
+                font-weight: 700;
+                z-index: 25;
+                font-size: 16px;
+                line-height: $height;
+                padding: 0 15px;
+                text-transform: uppercase;
+                pointer-events: none;
+                border-radius: 0 5px 5px 0;
+            }
+
+            &:hover {
+                &:before {
+                    background: darken($defaultColor, 10%);
+                }
+            }
+            .file_upload_field {
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 99;
+                margin: 0;
+                display: block;
+                cursor: pointer;
+                width: 100%;
+                padding-bottom: 50px;
+            }
+        }
+        .buttons {
+            display: flex;
+            gap: 0 30px;
+            @media (max-width: 450px) {
+                flex-direction: column;
+                gap: 20px 0;
+            }
+
+            .addPost {
+                border-radius: 10px;
+                color: #fff;
+                font-family: "Open Sans";
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                letter-spacing: -0.375px;
+                padding: 10px 0px;
+                background-color: #6d5cc5;
+                transition: 0.3s ease;
+                width: 200px;
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+            .clear {
+                border-radius: 10px;
+                color: #fff;
+                font-family: "Open Sans";
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                letter-spacing: -0.375px;
+                padding: 10px 0px;
+                background-color: #cf2828;
+                transition: 0.3s ease;
+                width: 200px;
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+    .photos {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 0 20px;
+        @media (max-width: 1169px) {
+            gap: 20px 0;
+        }
+        img {
+            max-width: 270px;
+        }
+    }
+}

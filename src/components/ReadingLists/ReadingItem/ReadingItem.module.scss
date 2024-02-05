@@ -1,0 +1,21 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    width: 213px;
+    cursor: pointer;
+    img {
+        width: 213px;
+        height: 225px;
+    }
+    p {
+        text-align: center;
+        color: #111210;
+        font-family: Open Sans;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 58px;
+        letter-spacing: -0.15px;
+        margin-bottom: 20px;
+    }
+}

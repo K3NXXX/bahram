@@ -1,0 +1,44 @@
+.root {
+    max-width: 1202px;
+    padding: 0 15px;
+    margin: 0 auto;
+    padding-top: 180px;
+    .title {
+        color: #000;
+        font-family: Open Sans;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 58px; /* 161.111% */
+        letter-spacing: -0.225px;
+        margin-bottom: 30px;
+        @media (max-width: 440px) {
+            font-size: 30px;
+        }
+    }
+    .description {
+        color: #000;
+        font-family: Open Sans;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 32px; /* 177.778% */
+        letter-spacing: -0.112px;
+        max-width: 676px;
+        margin-bottom: 100px;
+        @media (max-width: 440px) {
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+    }
+    .content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 70px 30px;
+        justify-items: center;
+        @media (max-width: 1080px) {
+            grid-template-columns: repeat(1, 600px);
+            justify-content: center;
+        }
+    }
+}
