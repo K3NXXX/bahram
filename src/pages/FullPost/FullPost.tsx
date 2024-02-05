@@ -101,7 +101,7 @@ export const FullPost: React.FC = () => {
                     </div>
                     {post.imageUrl ? (
                         <img
-                            src={`http://localhost:7777/${post.imageUrl}`}
+                            src={`https://tense-bear-life-jacket.cyclic.app/${post.imageUrl}`}
                             alt="post"
                         />
                     ) : null}
