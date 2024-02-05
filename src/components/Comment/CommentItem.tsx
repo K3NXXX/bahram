@@ -17,7 +17,7 @@ export const CommentItem: React.FC<CommentItemType> = ({ comment }) => {
             <div className={style.image__wrapper}>
                 <img
                     className={style.avatar}
-                    src={`http://localhost:7777/${comment.avatar}`}
+                    src={`https://tense-bear-life-jacket.cyclic.app/${comment.avatar}`}
                     alt="avatar"
                 />
             </div>
