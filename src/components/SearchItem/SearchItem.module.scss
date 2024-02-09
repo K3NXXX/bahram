@@ -5,9 +5,26 @@
     border-radius: 10px;
     border: 1px solid black;
     cursor: pointer;
+    @media (max-width:740px) {
+        width: 600px;
+    }
+    @media (max-width:630px) {
+        width: 500px;
+    }
+    @media (max-width:525px) {
+        width: 400px;
+        padding: 10px;
+    }
+    @media (max-width:424px) {
+        width: 300px;
+        padding: 10px;
+    }
     .top {
         display: flex;
         gap: 0 20px;
+        @media (max-width:424px) {
+            gap: 0 5px;
+        }
         .type {
             font-family: "Open Sans";
             font-weight: 600;
