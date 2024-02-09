@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/bahram/static/css/main.98257597.css",
-    "main.js": "/bahram/static/js/main.2995c661.js",
+    "main.css": "/bahram/static/css/main.8a79fd48.css",
+    "main.js": "/bahram/static/js/main.af903ffe.js",
     "static/media/intro-img.png": "/bahram/static/media/intro-img.4bd5a06784b1c0c3e1ea.png",
     "static/media/img3.jpg": "/bahram/static/media/img3.8230d2765fdb166c4d2f.jpg",
     "static/media/img1.jpg": "/bahram/static/media/img1.22b65385810b32527f87.jpg",
@@ -17,15 +17,15 @@
     "static/media/howNotTo.png": "/bahram/static/media/howNotTo.c7cde140d1f6214e40c4.png",
     "static/media/uiDesign.png": "/bahram/static/media/uiDesign.2f495a87ada915ae5c6b.png",
     "static/media/essentials.png": "/bahram/static/media/essentials.e2ed2074ae3efc2be46b.png",
-    "static/media/logo.svg": "/bahram/static/media/logo.5df1fc799febc37a5e8434b5b086aeae.svg",
-    "static/media/footer_logo.svg": "/bahram/static/media/footer_logo.3539a7dc0c41c4e3942301e5b9afd45e.svg",
-    "static/media/logo-black.svg": "/bahram/static/media/logo-black.9b2894658d924a1c2ed4a3764b3b156a.svg",
+    "static/media/logo.svg": "/bahram/static/media/logo.5892521b2645f0e9d00442cc76c4f8d0.svg",
+    "static/media/footer_logo.svg": "/bahram/static/media/footer_logo.a21b11312cc3eb45785c3e1351625811.svg",
+    "static/media/logo-black.svg": "/bahram/static/media/logo-black.5194c22e454ffae72a41ef534bd7445f.svg",
     "index.html": "/bahram/index.html",
-    "main.98257597.css.map": "/bahram/static/css/main.98257597.css.map",
-    "main.2995c661.js.map": "/bahram/static/js/main.2995c661.js.map"
+    "main.8a79fd48.css.map": "/bahram/static/css/main.8a79fd48.css.map",
+    "main.af903ffe.js.map": "/bahram/static/js/main.af903ffe.js.map"
   },
   "entrypoints": [
-    "static/css/main.98257597.css",
-    "static/js/main.2995c661.js"
+    "static/css/main.8a79fd48.css",
+    "static/js/main.af903ffe.js"
   ]
 }
