@@ -107,7 +107,7 @@ export const Account: React.FC = () => {
                                     <div className={style.avatar__content}>
                                         {user?.avatar ? (
                                             <img
-                                                src={`http://localhost:7777/${user.avatar}`}
+                                                src={`https://tense-bear-life-jacket.cyclic.app${user.avatar}`}
                                                 alt="User Avatar"
                                             />
                                         ) : (
