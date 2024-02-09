@@ -49,7 +49,7 @@ export const FullPost: React.FC = () => {
         if (isAuth) {
             toast.success("Comment was created successfully");
         }else {
-            toast.error("Only authourized users can add comments")
+            toast.error("Only authorized users can add comments")
         }
         reset();
     };
@@ -67,8 +67,14 @@ export const FullPost: React.FC = () => {
         fetchPost();
     }, [id]);
 
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
+
     if (!post) {
-        return <div>Loading...</div>;
+        return <div className={style.loading__wrapper}>
+            <div className={style.ldsRing}><div></div><div></div><div></div><div></div></div>
+        </div>
     }
     return (
         <div className={style.root}>
