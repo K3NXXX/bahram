@@ -1,8 +1,8 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../redux/store";
 import { fetchLogin, fetchRegister } from "../../redux/slices/auth/authSlice";
 import { loginData, registerData } from "../../redux/slices/auth/types";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,6 +10,7 @@ import style from "./Auth.module.scss";
 import { HOME_ROUTE } from "../../utils/consts";
 
 export const Auth: React.FC = () => {
+    const status = useSelector((state: RootState) => state.authSlice.status)
     const registrationForm = useForm<registerData>({ mode: "onChange" });
     const loginForm = useForm<loginData>({ mode: "onChange" });
 
@@ -31,10 +32,14 @@ export const Auth: React.FC = () => {
         navigate(HOME_ROUTE);
     };
 
-    const loginSubmitHandler: SubmitHandler<loginData> = (data: loginData) => {
-        dispatch(fetchLogin(data));
-        toast.success("Authorization was successful");
-        navigate(HOME_ROUTE);
+    const loginSubmitHandler: SubmitHandler<loginData> = async (data: loginData) => {
+        try {
+            await dispatch(fetchLogin(data));
+            navigate(HOME_ROUTE);
+            toast.success("Authorization was successful");
+        } catch (error) {
+            toast.error("Invalid email or password"); // Display error message in toast
+        }
     };
 
     return (
