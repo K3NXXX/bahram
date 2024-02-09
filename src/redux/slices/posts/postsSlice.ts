@@ -95,6 +95,7 @@ const postsSlice = createSlice({
             state.essentialsPosts = action.payload.essentialsPosts;
             state.seoPosts = action.payload.seoPosts;
             state.posts.status = "loaded";
+            state.popularPosts.status = "loaded";
         });
         builder.addCase(getPosts.rejected, (state) => {
             state.posts.items = [];

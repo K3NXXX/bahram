@@ -5,10 +5,12 @@ import { RootState } from "../../../redux/store";
 import { postType } from "../../../redux/slices/posts/types";
 import { POPULAR_ROUTE } from "../../../utils/consts";
 import style from "./PostLayout.module.scss";
+import SkeletonItem from "../../SkeletonItem/SkeletonItem";
 
 export const PostLayout = () => {
+    const skeleton = [...new Array(4)].map((_, index) => <SkeletonItem key={index}/>)
     const popularPosts = useSelector(
-        (state: RootState) => state.postsSlice.popularPosts.items
+        (state: RootState) => state.postsSlice.popularPosts
     );
     return (
         <section className={style.root}>
@@ -34,9 +36,12 @@ export const PostLayout = () => {
                     </p>
                 </div>
                 <div className={style.content__right}>
-                    {popularPosts?.slice(0, 4).map((item: postType) => (
-                        <PostLayoutItem key={item._id} item={item} />
-                    ))}
+                    {
+                        popularPosts.status === "loading" ? skeleton :
+                        popularPosts.items?.slice(0,4).map((item:postType) => (
+                            <PostLayoutItem key={item._id} item={item}/>
+                        ))
+                    }
                 </div>
             </div>
         </section>
