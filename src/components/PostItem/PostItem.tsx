@@ -19,7 +19,7 @@ export const PostItem: React.FC<PostItemPropsType> = ({ post }) => {
                     <div className={style.post}>
                         {post.imageUrl ? (
                             <img
-                                src={`http://localhost:7777/${post.imageUrl}`}
+                                src={`https://tense-bear-life-jacket.cyclic.app/${post.imageUrl}`}
                                 alt="post"
                             />
                         ) : null}
