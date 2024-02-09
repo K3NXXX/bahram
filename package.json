@@ -56,6 +56,8 @@
     ]
   },
   "devDependencies": {
-    "@types/react-scroll": "^1.8.10"
+    "@types/react-scroll": "^1.8.10",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35"
   }
 }

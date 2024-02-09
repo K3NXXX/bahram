@@ -25,8 +25,10 @@ import { removePost } from "../../redux/slices/posts/postsSlice";
 import { EDITPOST_ROUTE, HOME_ROUTE } from "../../utils/consts";
 import axios from "../../utils/axios";
 import style from "./FullPost.module.scss";
+import { checkIsAuth } from "../../redux/slices/auth/authSlice";
 
 export const FullPost: React.FC = () => {
+    const isAuth = useSelector(checkIsAuth)
     const dispatch = useDispatch<AppDispatch>();
     const { register, reset, handleSubmit } = useForm<createCommentData>({
         mode: "onChange",
@@ -44,7 +46,11 @@ export const FullPost: React.FC = () => {
             comment: data.comment,
         };
         dispatch(createComment(formData));
-        toast.success("Comment was created successfully");
+        if (isAuth) {
+            toast.success("Comment was created successfully");
+        }else {
+            toast.error("Only authourized users can add comments")
+        }
         reset();
     };
 
